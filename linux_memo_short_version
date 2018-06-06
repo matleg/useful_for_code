@@ -1,0 +1,194 @@
+
+--------------------------- softwares ---------------------------
+
+p7zip-full ark arp-scan bleachbit blender cryptsetup dolphin ipython fdupes firefox gedit gimp git gnome-system-monitor gparted gvncviewer hardinfo htop luckybackup meld ncdu okular photorec pip redshift samba ssh vlc vim vncviewer
+
+--------------------------- softwares ---------------------------
+
+
+
+--------------------------- vimrc ---------------------------
+
+cp /etc/vim/vimrc  ~/.vimrc
+attention au compatible avec vi qui gere mal la souris
+
+--------------------------- vimrc ---------------------------
+
+
+
+--------------------------- samba ---------------------------
+
+[partages]
+comment = partages
+path = "/media/pi/cle57"
+writeable = yes
+guest ok = yes
+create mask = 0644
+directory mask = 0755
+force user = pi
+
+sudo /etc/init.d/samba start,restart,stop
+
+--------------------------- samba ---------------------------
+
+
+
+--------------------------- linux ---------------------------
+
+Dossier public (c) dans dossier prive (b)
+
+mkdir a/b/c
+chmod 711 a/b
+sudo chown root a/b
+touch a/b/c/this.txt
+
+
+
+fichier /etc/rc.local  -> at start, after all boot processes
+
+
+--------------------------- linux ---------------------------
+
+
+
+
+--------------------------- démarrer automatiquement vncserver ---------------------------
+
+ajouter aussi le paquet x11vnc pour demarrage auto
+
+installer tightvncserver coté serveur (rasp) et gvncviewer côté client
+creer le fichier /home/pi/.config/autostart/tightvnc.desktop
+#!/bin/sh
+[Desktop Entry]
+Type=Application
+Name=tightvncserver
+Exec=vncserver :1
+StartupNotify=false
+
+
+la commande qui lance est : vncserver -geometry 1600x900 :1 (connexions sur le port 1)
+
+pour se connecter côté client:
+"vncviewer <adresseipOuHost>:1 &" & pour detacher processus de console
+ou
+"gvncviewer <adresseipOuHost>:1 &"
+pas de username!!!
+
+si ne marche pas: sudo apt-get purge xxxxxxx; sudo apt-get install xxxxxxx
+xxxxxxx=tightvncserver
+        tightvnc-java
+        
+essayer d'ajouter aussi le paquet x11vnc
+
+
+--------------------------- démarrer automatiquement vncserver ---------------------------
+
+
+
+
+--------------------------- scanner les adresses IP du reseau ---------------------------
+
+installer arp-scan
+puis commande : sudo arp-scan -l (pour --localnet)
+
+sinon, commande:
+nmap -T4 -sP 192.168.1.0-254 (T4: profil agressif, -sP: scan ports
+0-254:plage d'adresses)
+
+--------------------------- scanner les adresses IP du reseau ---------------------------
+
+
+
+
+--------------------------- configuration clavier ---------------------------
+
+sudo dpkg-reconfigure keyboard-configuration
+
+sudo vim /etc/default/keyboard
+XKBLAYOUT=gb
+XKBLAYOUT=fr
+
+--------------------------- configuration clavier ---------------------------
+
+
+
+
+--------------------------- commande dd ---------------------------
+
+pour trouver adresse carte sd
+sudo fdisk -l
+
+pour creer carte sd
+sudo dd bs=4M if=2017-11-29-raspbian-stretch.img of=/dev/mmcblk0p status=progress conv=fsync
+
+(if: input file, of:output file, bs: block size)
+
+pour restaurer
+sudo dd if=~/chemin/vers/le/fichier/de/backup.img of=/dev/mmcblk0  bs=512
+
+mettre les bits zeros: if=/dev/zero
+mettre des random: if=/dev/urandom
+
+--------------------------- commande dd ---------------------------
+
+
+
+
+
+--------------------------- simple http server ---------------------------
+
+python -m SimpleHTTPServer 9988
+http://adresseip:9988/
+
+--------------------------- simple http server ---------------------------
+
+
+
+
+--------------------------- gestion batterie linux ---------------------------
+
+TLP, alias « Linux Advanced Power Management »
+
+--------------------------- gestion batterie linux ---------------------------
+
+
+
+
+--------------------------- wifi auto reconnection raspberry ---------------------------
+
+script a executer dans /etc/rc.local (a chaque demarrage)
+
+#!/bin/bash
+
+while true ; do
+        if ifconfig wlan0 | grep -q "inet addr:" ; then
+                sleep 300
+        else
+                ifup --force wlan0
+                sleep 20
+        fi
+done
+
+
+/home/pi/network_monitor.sh &
+--------------------------- wifi auto reconnection raspberry ---------------------------
+
+
+
+
+
+--------------------------- bash_aliases ---------------------------
+
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
+--------------------------- bash_aliases ---------------------------
+
+
+
+
+
+
+
+
