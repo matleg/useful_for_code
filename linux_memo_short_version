@@ -3,16 +3,14 @@
 
 p7zip-full ark arp-scan bleachbit blender cryptsetup dolphin ipython fdupes firefox gedit gimp git gnome-system-monitor gparted gvncviewer hardinfo htop luckybackup meld ncdu okular photorec pip redshift samba ssh vlc vim vncviewer
 
---------------------------- softwares ---------------------------
 
 
 
 --------------------------- vimrc ---------------------------
 
 cp /etc/vim/vimrc  ~/.vimrc
-attention au compatible avec vi qui gere mal la souris
+/!\ compatible with vi option   >>  mouse problems
 
---------------------------- vimrc ---------------------------
 
 
 
@@ -29,13 +27,12 @@ force user = pi
 
 sudo /etc/init.d/samba start,restart,stop
 
---------------------------- samba ---------------------------
 
 
 
 --------------------------- linux ---------------------------
 
-Dossier public (c) dans dossier prive (b)
+Public directory (c)  in private directory (b)
 
 mkdir a/b/c
 chmod 711 a/b
@@ -44,20 +41,16 @@ touch a/b/c/this.txt
 
 
 
-fichier /etc/rc.local  -> at start, after all boot processes
-
-
---------------------------- linux ---------------------------
+file /etc/rc.local  -> at start, after all boot processes
 
 
 
 
---------------------------- démarrer automatiquement vncserver ---------------------------
+--------------------------- auto start vncserver ---------------------------
 
-ajouter aussi le paquet x11vnc pour demarrage auto
 
-installer tightvncserver coté serveur (rasp) et gvncviewer côté client
-creer le fichier /home/pi/.config/autostart/tightvnc.desktop
+install tightvncserver on server (e.g. raspberry) and gvncviewer on client
+create file /home/pi/.config/autostart/tightvnc.desktop
 #!/bin/sh
 [Desktop Entry]
 Type=Application
@@ -65,42 +58,38 @@ Name=tightvncserver
 Exec=vncserver :1
 StartupNotify=false
 
+starting command is : vncserver -geometry 1600x900 :1 (connexions on port 1)
 
-la commande qui lance est : vncserver -geometry 1600x900 :1 (connexions sur le port 1)
-
-pour se connecter côté client:
-"vncviewer <adresseipOuHost>:1 &" & pour detacher processus de console
-ou
+command to connect:
+"vncviewer <adresseipOuHost>:1 &"
+or
 "gvncviewer <adresseipOuHost>:1 &"
-pas de username!!!
+no username!!!
 
-si ne marche pas: sudo apt-get purge xxxxxxx; sudo apt-get install xxxxxxx
+if does not work: sudo apt-get purge xxxxxxx; sudo apt-get install xxxxxxx
 xxxxxxx=tightvncserver
         tightvnc-java
         
-essayer d'ajouter aussi le paquet x11vnc
-
-
---------------------------- démarrer automatiquement vncserver ---------------------------
+also try to install x11vnc for auto start
 
 
 
 
---------------------------- scanner les adresses IP du reseau ---------------------------
 
-installer arp-scan
-puis commande : sudo arp-scan -l (pour --localnet)
+--------------------------- scan IP addresses on network ---------------------------
 
-sinon, commande:
-nmap -T4 -sP 192.168.1.0-254 (T4: profil agressif, -sP: scan ports
-0-254:plage d'adresses)
+install arp-scan
+sudo arp-scan -l (for  --localnet)
 
---------------------------- scanner les adresses IP du reseau ---------------------------
-
+or:
+nmap -T4 -sP 192.168.1.0-254 (T4: profile agressive, -sP: scan ports
+0-254: all addresses)
 
 
 
---------------------------- configuration clavier ---------------------------
+
+
+--------------------------- configuration keyboard ---------------------------
 
 sudo dpkg-reconfigure keyboard-configuration
 
@@ -108,28 +97,25 @@ sudo vim /etc/default/keyboard
 XKBLAYOUT=gb
 XKBLAYOUT=fr
 
---------------------------- configuration clavier ---------------------------
 
 
 
 
---------------------------- commande dd ---------------------------
+--------------------------- dd ---------------------------
 
-pour trouver adresse carte sd
+to find SD card
 sudo fdisk -l
 
-pour creer carte sd
+to create SD card
 sudo dd bs=4M if=2017-11-29-raspbian-stretch.img of=/dev/mmcblk0p status=progress conv=fsync
 
 (if: input file, of:output file, bs: block size)
 
-pour restaurer
+to restore
 sudo dd if=~/chemin/vers/le/fichier/de/backup.img of=/dev/mmcblk0  bs=512
 
-mettre les bits zeros: if=/dev/zero
-mettre des random: if=/dev/urandom
-
---------------------------- commande dd ---------------------------
+bits zeros: if=/dev/zero
+random: if=/dev/urandom
 
 
 
@@ -140,23 +126,21 @@ mettre des random: if=/dev/urandom
 python -m SimpleHTTPServer 9988
 http://adresseip:9988/
 
---------------------------- simple http server ---------------------------
 
 
 
 
---------------------------- gestion batterie linux ---------------------------
+--------------------------- battery management linux ---------------------------
 
 TLP, alias « Linux Advanced Power Management »
 
---------------------------- gestion batterie linux ---------------------------
 
 
 
 
 --------------------------- wifi auto reconnection raspberry ---------------------------
 
-script a executer dans /etc/rc.local (a chaque demarrage)
+script to execute in  /etc/rc.local (at each start)
 
 #!/bin/bash
 
@@ -169,9 +153,7 @@ while true ; do
         fi
 done
 
-
-/home/pi/network_monitor.sh &
---------------------------- wifi auto reconnection raspberry ---------------------------
+(for example : /home/pi/network_monitor.sh & )
 
 
 
@@ -183,7 +165,6 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
---------------------------- bash_aliases ---------------------------
 
 
 
@@ -191,13 +172,11 @@ fi
 --------------------------- rsync slashes memo ---------------------------
 
 rsync source destination/                          !=        rsync source/ destination/ 
-(creation du dossier source dans destination)      !=       (copie du contenu de source dans destination)
+(creation of source in destination)                !=       (copy of content from source into destination)
   
 rsync source destination/     =       rsync source/ destination/source/
 rsync source destination/     =       rsync source destination    (slash in destination has no influence)
  
---------------------------- rsync slashes memo ---------------------------
-
 
 
 
@@ -209,9 +188,6 @@ Set a more restrictive umask: i.e. no exec perms for others:
 umask 027
 Paranoid: neither group nor others have any perms:
 umask 077
-
---------------------------- umask memo ---------------------------
-
 
 
 
@@ -227,9 +203,84 @@ preserves permissions (owners, groups), times, symbolic links, and devices
 -E preserve executability
 -t preserve modification times
 
---------------------------- rsync options ---------------------------
 
 
+
+--------------------------- info about a command ---------------------------
+
+bash: type
+csh : which
+
+type cat  -> /bin/cat
+type echo  -> builtin shell
+
+
+
+--------------------------- commands execution ---------------------------
+
+c1 ; c2  -> c1 then c2
+c1 && c2  -> c2 if no error in c1
+c1 || c2  -> c2 if error in c1
+
+start command at time & date :
+at 13:14 9/23/18 command         ctrl+D
+
+list jobs:
+atq
+
+
+
+--------------------------- sticky bit - SUID/GUID ---------------------------
+
+sticky bit:
+chmod 1777 directory    or    chmod o+t directory
+1: allow users to delete only files they own
+
+
+SUID/GUID:
+rights allowing to execute a command with command's rights and not with user's rights. the command is usually
+a system tool:
+/usr/bin/passwd : _rwsr_xr_x  -> bob can take roots' rights to execute the command
+
+chmod 4777 command   or   chmod u+s command
+chmod 2777 command   or   chmod g+s command
+
+
+
+
+
+--------------------------- various linux shell sys admin ---------------------------
+
+
+? replaces 1 character  -> ls guide_unix.??x
+
+inode : unique file number on the partition
+
+simple quote ' ' : avoids characters expansion:  '$USER' -> $USER
+double quote " " : allows $ to keep its meaning "$USER" -> mat
+
+possible to mount a disk at IP address?
+/ipadress/path/to/disk/......
+/ipadresstodisk/.........
+
+
+
+
+--------------------------- script execution ---------------------------
+
+. /path/to/script.sh                 !=               ./path/to/script.sh
+execute in current shell                          opens new shell
+
+
+
+
+
+
+--------------------------- linux VS windows ---------------------------
+
+\r ASCII CR  -> end of line, without jump
+\n ASCII LF  -> next line (linux)
+\r\n EOL : CRLF  -> windows
 
 
 
