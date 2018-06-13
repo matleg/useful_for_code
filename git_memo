@@ -1,0 +1,56 @@
+
+working with detached HEAD:
+
+git checkout commit_ID
+git commit
+git commit
+....
+git branch tmp
+git checkout master
+git merge tmp
+
+
+or directly:
+
+git checkout -b tmp commit_ID
+git commit
+git commit
+....
+git checkout master
+git merge tmp
+
+-----------------------------------------------------------------------------------------------------------------------
+
+delete distant branches:
+git push [distant_name] [local_branch]:[distant_branch]
+if local_branch is empty, it means distant_branch is deleted, simply!
+ex: git push origin  :[distant_branch]
+
+origin: default name for remote repository
+possible to work with several remote repositories hosted in different places
+
+-----------------------------------------------------------------------------------------------------------------------
+
+git reset --hard HEAD^ : cancel last commit (the only one possible)
+git reset file     or     git reset commit_ID : files remain modified
+git show commit_ID:/path/to/file > file.old  : export previous version of file
+
+-----------------------------------------------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,34 @@
+[alias]
+  co = checkout
+  ci = commit
+  br = branch
+  st = status
+  hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+
+[merge]
+    tool = kdiff3
+
+[mergetool "meld"]
+    path = C:/Program Files (x86)/Meld/Meld.exe
+    trustExitCode = false
+
+[diff]
+    tool = meld
+
+[difftool "meld"]
+    path = "C:/Program Files (x86)/Meld/Meld.exe"
+	prompt = false
+    trustExitCode = false
+
+[color]
+	ui = auto
+
+[user]
+  name = mat
+  email = mat@html.com
+
+[push]
+  default = simple
+
+[core]
+  editor = vim

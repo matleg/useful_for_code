@@ -4,18 +4,87 @@ np.count_nonzero(table == '0')
 
 -----------------------------------------------------------------------------------------------------------------------
 
-Making a shallow copy of an object won’t clone child objects. Therefore, the copy is not fully independent of the original.
-A deep copy of an object will recursively clone child objects. The clone is fully independent of the original, but creating a deep copy is slower.
+Making a shallow copy of an object won’t clone child objects.
+Therefore, the copy is not fully independent of the original.
+A deep copy of an object will recursively clone child objects.
+ The clone is fully independent of the original, but creating a deep copy is slower.
+
+-----------------------------------------------------------------------------------------------------------------------
+
+__double_leading_underscore : __foo replaced by the interpreter by  _classname__foo so that it does not overlap
+
+_single_leading_underscore : _internal_name : private variable : ignored in "from xxx import *",
+unless specified in __all__
+
+-----------------------------------------------------------------------------------------------------------------------
+
+multiple inheritance : copy of the first method found
+class C(B,A): __init__ from B is copied, not from A.
+super() returns the 1st method of the first parent (or grandparent) found
+
+-----------------------------------------------------------------------------------------------------------------------
+
+instance.value : looked for in : 1-instance, 2-subclass, 3-superclass, 4-object
+
+keep track of instances:
+class A:
+    instances = []
+    def __init__(self, foo):
+        self.foo = foo
+        A.instances.append(self)
+
+At the end of the program :
+foo_vars = {id(instance):instance.foo for instance in A.instances}
+
+-----------------------------------------------------------------------------------------------------------------------
+
+hashable object : value that does not change, must have the method __hash__()
+
+-----------------------------------------------------------------------------------------------------------------------
+
+"clean" import
+1 - create a wrapper module separated from the code:
+import sys
+import os
+sys.path.insert(0, os.path.join(...,lib))
+import mylib
+del sys.path[0]
+
+2 -
+from lib import mylib
+
+-----------------------------------------------------------------------------------------------------------------------
+
+reinstall package when it really does not work!
+pip install --user --force-reinstall --ignore-installed --no-binary :all: package name
+
+-----------------------------------------------------------------------------------------------------------------------
+
+LBYL: look before you leap : if key in dic ....
+EAFP : easier to ask for forgiveness than permission : try: .... except: ....
+
+-----------------------------------------------------------------------------------------------------------------------
+
+import mod
+mod.__file__
+> 'C:\\users\\mat\\mod.py'
+
+python >=3.3 : __init__.py not necessary to make a package
+
+-----------------------------------------------------------------------------------------------------------------------
+
+pytest: assert an error is raised:
+with pytest.raises(ValueError):
+    fibonacci(-1)
 
 -----------------------------------------------------------------------------------------------------------------------
 
 
 
+
 -----------------------------------------------------------------------------------------------------------------------
 
-
-
-
+-----------------------------------------------------------------------------------------------------------------------
 
 
 
