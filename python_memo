@@ -79,10 +79,53 @@ with pytest.raises(ValueError):
 
 -----------------------------------------------------------------------------------------------------------------------
 
+Mutual top-level imports: from SO
 
+If you do import foo inside bar and import bar inside foo, it will work fine. 
+By the time anything actually runs, both modules will be fully loaded and will have references to each other.
+
+The problem is when instead you do from foo import abc and from bar import xyz. 
+Because now each module requires the other module to already be imported 
+(so that the name we are importing exists) before it can be imported.
 
 
 -----------------------------------------------------------------------------------------------------------------------
+
+Why is “1000000000000000 in range(1000000000000001)” so fast in Python 3?  from SO
+
+The Python 3 range() object doesn't produce numbers immediately; 
+it is a smart sequence object that produces numbers on demand.
+The object also implements the object.__contains__ hook, and calculates if your number is part of its range. 
+
+For example, 994 is in range(4, 1000, 2) because:
+    4 <= 994 < 1000, and
+    (994 - 4) % 2 == 0.
+
+
+range is not a generator:
+>>> a = range(5)
+>>> print(list(a))
+[0, 1, 2, 3, 4]
+>>> print(list(a))
+[0, 1, 2, 3, 4]
+
+range actually is a sequence, just like a list:
+>>> import collections.abc
+>>> isinstance(a, collections.abc.Sequence)
+True
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
 
 -----------------------------------------------------------------------------------------------------------------------
 
