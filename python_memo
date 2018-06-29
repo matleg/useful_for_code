@@ -1,28 +1,38 @@
 
-- numpy count occurences of element in array 
+-------------------------- numpy count occurences of element in array --------------------------
+
 np.count_nonzero(table == '0')
 
------------------------------------------------------------------------------------------------------------------------
+
+
+
+-------------------------- shallow / deep copy --------------------------
 
 Making a shallow copy of an object won’t clone child objects.
 Therefore, the copy is not fully independent of the original.
 A deep copy of an object will recursively clone child objects.
  The clone is fully independent of the original, but creating a deep copy is slower.
+ 
+ 
 
------------------------------------------------------------------------------------------------------------------------
+-------------------------- underscores --------------------------
 
 __double_leading_underscore : __foo replaced by the interpreter by  _classname__foo so that it does not overlap
 
 _single_leading_underscore : _internal_name : private variable : ignored in "from xxx import *",
 unless specified in __all__
 
------------------------------------------------------------------------------------------------------------------------
+
+
+-------------------------- multiple inheritance --------------------------
 
 multiple inheritance : copy of the first method found
 class C(B,A): __init__ from B is copied, not from A.
 super() returns the 1st method of the first parent (or grandparent) found
 
------------------------------------------------------------------------------------------------------------------------
+
+
+-------------------------- instances --------------------------
 
 instance.value : looked for in : 1-instance, 2-subclass, 3-superclass, 4-object
 
@@ -36,11 +46,17 @@ class A:
 At the end of the program :
 foo_vars = {id(instance):instance.foo for instance in A.instances}
 
------------------------------------------------------------------------------------------------------------------------
+
+
+
+-------------------------- hashable object --------------------------
 
 hashable object : value that does not change, must have the method __hash__()
 
------------------------------------------------------------------------------------------------------------------------
+
+
+
+-------------------------- imports --------------------------
 
 "clean" import
 1 - create a wrapper module separated from the code:
@@ -53,17 +69,27 @@ del sys.path[0]
 2 -
 from lib import mylib
 
------------------------------------------------------------------------------------------------------------------------
+
+
+
+-------------------------- force reinstall --------------------------
 
 reinstall package when it really does not work!
 pip install --user --force-reinstall --ignore-installed --no-binary :all: package name
 
------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+-------------------------- concepts --------------------------
 
 LBYL: look before you leap : if key in dic ....
 EAFP : easier to ask for forgiveness than permission : try: .... except: ....
 
------------------------------------------------------------------------------------------------------------------------
+
+
+
+-------------------------- imports / packages --------------------------
 
 import mod
 mod.__file__
@@ -71,13 +97,21 @@ mod.__file__
 
 python >=3.3 : __init__.py not necessary to make a package
 
------------------------------------------------------------------------------------------------------------------------
+
+
+
+-------------------------- pytest --------------------------
 
 pytest: assert an error is raised:
 with pytest.raises(ValueError):
     fibonacci(-1)
 
------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+    
+-------------------------- mutual imports --------------------------
 
 Mutual top-level imports: from SO
 
@@ -89,7 +123,10 @@ Because now each module requires the other module to already be imported
 (so that the name we are importing exists) before it can be imported.
 
 
------------------------------------------------------------------------------------------------------------------------
+
+
+
+-------------------------- sequence --------------------------
 
 Why is “1000000000000000 in range(1000000000000001)” so fast in Python 3?  from SO
 
@@ -115,19 +152,21 @@ range actually is a sequence, just like a list:
 True
 
 
------------------------------------------------------------------------------------------------------------------------
 
 
------------------------------------------------------------------------------------------------------------------------
+--------------------------  --------------------------
 
 
------------------------------------------------------------------------------------------------------------------------
+--------------------------  --------------------------
 
 
------------------------------------------------------------------------------------------------------------------------
+--------------------------  --------------------------
 
 
------------------------------------------------------------------------------------------------------------------------
+--------------------------  --------------------------
+
+
+--------------------------  --------------------------
 
 
 

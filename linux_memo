@@ -129,13 +129,25 @@ random: if=/dev/urandom
 
 
 
-
-
 --------------------------- simple http server ---------------------------
 
 python -m SimpleHTTPServer 9988
 http://adresseip:9988/
 
+
+
+
+--------------------------- simple git server ---------------------------
+
+install git instaweb
+script to execute at each start with, e.g.:
+crontab -e
+@reboot /home/pi/startup_script.sh
+
+#!/bin/bash
+cd my_git_repo.git
+git instaweb --httpd=webrick
+cd /home/pi
 
 
 
