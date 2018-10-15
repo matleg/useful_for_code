@@ -1,0 +1,51 @@
+
+-------------------------- static keyword --------------------------
+
+from https://callicode.fr/blog/post/variables_statiques_python.html:
+
+void compteur(void){
+    static int c = 0;
+    c = c + 1;
+    printf("Appel n : %d\n",c);
+}
+
+void main(void) {
+    int i;
+    for(i=0;i<3;i++){
+    compteur();
+    }
+}
+
+>Appel n : 1
+>Appel n : 2
+>Appel n : 3
+
+The static variable c is local to the function compteur but it keeps its value between 2 calls
+(thanks to static keyword).
+
+
+
+En python:
+def compteur():
+    if not hasattr(compteur, 'c'):
+        compteur.c = 0
+    compteur.c = compteur.c + 1
+    print("Appel numéro : ", c)
+
+for i in range(3):
+    compteur()
+
+
+--------------------------  --------------------------
+
+
+--------------------------  --------------------------
+
+
+--------------------------  --------------------------
+
+
+
+
+
+
