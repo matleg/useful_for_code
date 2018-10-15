@@ -186,6 +186,83 @@ class A:
 ['c']
 
 
+
+
+
+-------------------------- build with cx_Freeze --------------------------
+
+windows command : "python setup.py build"
+
+in setup.py:
+############################################## begin
+from cx_Freeze import setup, Executable
+
+packages = ["pkg_resources",
+            "os",
+            ... ,
+            "os"]
+
+# Dependencies are automatically detected, but it might need fine tuning.
+build_exe_options = {"packages": packages}
+
+# GUI applications require a different base on Windows (the default is for a
+# console application).
+base = None
+# if sys.platform == "win32":
+#     base = "Win32GUI"
+
+setup(name="esiam_server",
+      version="0.1",
+      description="grpc aum esiam server",
+      options={"build_exe": build_exe_options},
+      executables=[Executable("esiam_server.py", base=base)])
+############################################## end
+
+
+
+
+-------------------------- split only once --------------------------
+
+x, commands = input().split(";",1)
+
+
+
+
+-------------------------- pip trick --------------------------
+
+Use pip (version 6 or later) with the -t <directory> flag to
+copy the libraries into the folder you created in the previous step. For example:
+pip install -t lib/ <library_name>
+
+
+
+-------------------------- subprocess popen VS call --------------------------
+
+from SO:
+returncode = call(*args, **kwargs)
+
+is basically the same as calling
+
+returncode = Popen(*args, **kwargs).wait()
+
+call is just a convenience function. It's implementation in CPython is in subprocess.py:
+
+def call(*popenargs, timeout=None, **kwargs):
+    """Run command with arguments.  Wait for command to complete or
+    timeout, then return the returncode attribute.
+    The arguments are the same as for the Popen constructor.  Example:
+    retcode = call(["ls", "-l"])
+    """
+    with Popen(*popenargs, **kwargs) as p:
+        try:
+            return p.wait(timeout=timeout)
+        except:
+            p.kill()
+            p.wait()
+            raise
+
+it's a thin wrapper around Popen.
+
 --------------------------  --------------------------
 
 
@@ -193,13 +270,6 @@ class A:
 
 
 --------------------------  --------------------------
-
-
---------------------------  --------------------------
-
-
-
-
 
 
 
