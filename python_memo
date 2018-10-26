@@ -1,7 +1,11 @@
 
--------------------------- numpy count occurences of element in array --------------------------
+-------------------------- for...else syntax --------------------------
 
-np.count_nonzero(table == '0')
+for i in foo:
+    if i == 0:
+        break
+else:
+    print("i was never 0")
 
 
 
@@ -154,7 +158,7 @@ True
 
 
 
--------------------------- default values parameters --------------------------
+-------------------------- default values parameters & mutable arguments --------------------------
 
 For functions:
 
@@ -184,6 +188,32 @@ class A:
 'p'
 >>> g2.v
 ['c']
+
+------------------------
+
+def foo(x=[]):
+...     x.append(1)
+...     print x
+...
+>>> foo()
+[1]
+>>> foo()
+[1, 1]
+>>> foo()
+[1, 1, 1]
+
+Instead, you should use a sentinel value denoting "not given" and replace with the mutable you'd like as default:
+
+>>> def foo(x=None):
+...     if x is None:
+...         x = []
+...     x.append(1)
+...     print x
+>>> foo()
+[1]
+>>> foo()
+[1]
+
 
 
 
