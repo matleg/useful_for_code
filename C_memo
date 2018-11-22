@@ -25,7 +25,7 @@ The static variable c is local to the function compteur but it keeps its value b
 
 
 
-En python:
+python:
 def compteur():
     if not hasattr(compteur, 'c'):
         compteur.c = 0
@@ -36,7 +36,83 @@ for i in range(3):
     compteur()
 
 
---------------------------  --------------------------
+-------------------------- include --------------------------
+
+#include <stdio.h>  --> libraries
+#include "game.h"  --> local file
+
+headers like stdio.h, stdlib.h, ... contain prototypes of standard functions (printf...)
+
+<string.h> : strlen, strcmp, strcpy, ...
+
+#ifndef used in .h to avoid infinite inclusions
+
+
+
+
+-------------------------- array --------------------------
+
+fixed size! never : int array[var], always int array[5]
+
+array[1]  <->  *(array+1)  : array is an adress, array[1] is a value 
+
+
+
+-------------------------- struct example --------------------------
+
+#include <stdio.h>
+
+typedef struct Personne;
+
+struct Personne
+{
+    char name[100];
+    char surname[100];
+    int age;
+};
+
+int main(int argc, char const *argv[])
+{
+    struct Personne pers;
+    pers.name[0] = 't';
+    pers.name[1] = 'o';
+    pers.name[2] = 't';
+    pers.name[3] = 'o';
+    pers.name[4] = '\0';
+    printf("%s", pers.name);
+
+    return 0;
+}
+
+
+
+-------------------------- strings --------------------------
+
+
+
+
+#include <string.h>
+
+int main(int argc, char const *argv[])
+{
+    char str[] = {'a', 'b', 'c', '\0'};
+    char str2[] = "abcd";  // 2 ways to define strings
+    int len ;
+    len = strlen(str);
+
+    int comp;
+    comp = strcmp(str, str2);
+    printf("%s, %s, %d, %d\n", str, str2, len, comp); // abc, abcd, 3, -1
+
+    strncat(str, str2, 2);
+    printf("%s \n", str); // abcab
+
+    char s2[] = "blablahblah";
+    strcpy(str2, s2);
+    printf("%s \n", str2); // blablahblah
+
+    return 0;
+}
 
 
 --------------------------  --------------------------
