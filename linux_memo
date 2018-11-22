@@ -1,7 +1,7 @@
 
 --------------------------- softwares ---------------------------
 
-p7zip-full ark arp-scan bleachbit blender cryptsetup dolphin ipython fdupes firefox gedit gimp git gnome-system-monitor gparted gvncviewer hardinfo htop luckybackup meld ncdu okular photorec pip redshift samba ssh vlc vim vncviewer
+p7zip-full tlp ark arp-scan bleachbit blender cryptsetup fdupes firefox gedit gimp git-all gparted hardinfo htop luckybackup meld ncdu okular photorec python3-pip redshift samba ssh vlc vim vncviewer
 
 
 
