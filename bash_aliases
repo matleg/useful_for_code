@@ -36,8 +36,8 @@ function na { nano $* & }
 
 alias p='pwd'
 alias pku='pkill -u mat'
-alias psa='ps -edf | grep mat'
-alias psg='ps -edf | grep'
+alias psa='ps -ef | grep mat '
+alias psg='ps -ef | grep '
 alias rm='rm -rf'
 alias src='source ~/.bashrc'
 alias sudo='sudo '  # for autocompletion (first word after ' ')

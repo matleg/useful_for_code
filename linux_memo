@@ -177,12 +177,17 @@ done
 
 
 
---------------------------- bash_aliases ---------------------------
+--------------------------- bash source ---------------------------
 
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
+./script
+-> executes the script. When done, changes made to the environment are discarded.
 
+. script
+-> sources the script. As if commands had been typed in directly. Environment changes are kept.
+
+source script
+-> sources the script
+source and . are synonymous in Bash.
 
 
 
