@@ -37,6 +37,9 @@ git show commit_ID:/path/to/file > file.old  : export previous version of file
 
 
 ------------------------------  ------------------------------
+
+git rebase ONLY if nobody is looking at the branch! Otherwise, git revert or something else
+
 ------------------------------  ------------------------------
 ------------------------------  ------------------------------
 ------------------------------  ------------------------------
