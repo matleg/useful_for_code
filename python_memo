@@ -264,6 +264,14 @@ Use pip (version 6 or later) with the -t <directory> flag to
 copy the libraries into the folder you created in the previous step. For example:
 pip install -t lib/ <library_name>
 
+from https://pip.pypa.io/en/stable/reference/pip_install/:
+-t, --target <dir>
+
+Install packages into <dir>. 
+By default this will not replace existing files/folders in <dir>. 
+Use –upgrade to replace existing packages in <dir> with new versions.
+
+
 
 
 -------------------------- subprocess popen VS call --------------------------
