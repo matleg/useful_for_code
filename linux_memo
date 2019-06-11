@@ -95,7 +95,7 @@ the adresses, example :
 
 
 
---------------------------- configuration keyboard ---------------------------
+--------------------------- configuration keyboard raspberry ---------------------------
 
 sudo dpkg-reconfigure keyboard-configuration
 
@@ -145,6 +145,12 @@ cd my_git_repo.git
 git instaweb --httpd=webrick
 cd /home/pi
 
+
+
+--------------------------- auto start gitlab CE server ---------------------------
+
+sudo systemctl enable gitlab-runsvdir.service
+sudo systemctl disable gitlab-runsvdir.service
 
 
 
@@ -371,6 +377,18 @@ exit 0
 chmod --reference=reference_file file
 
 chown --reference=reference_file file
+
+
+
+
+
+---------------------------  ---------------------------
+---------------------------  ---------------------------
+---------------------------  ---------------------------
+
+---------------------------  ---------------------------
+---------------------------  ---------------------------
+---------------------------  ---------------------------
 
 ---------------------------  ---------------------------
 ---------------------------  ---------------------------
