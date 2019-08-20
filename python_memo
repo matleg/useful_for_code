@@ -24,7 +24,8 @@ A deep copy of an object will recursively clone child objects.
 __double_leading_underscore : __foo replaced by the interpreter by  _classname__foo so that it does not overlap
 
 _single_leading_underscore : _internal_name : private variable : ignored in "from xxx import *",
-unless specified in __all__
+unless specified in __all__ , can be accessed directly inside a class (no name replacement) however
+IDEs will issue warning
 
 single_trailing_underscore_ : avoid conflicts with keywords and build_exe_options
 
