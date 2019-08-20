@@ -19,6 +19,9 @@ git commit
 git checkout master
 git merge tmp
 
+
+
+
 ------------------------------ delete distant branches ------------------------------
 
 git push [distant_name] [local_branch]:[distant_branch]
@@ -28,6 +31,9 @@ ex: git push origin  :[distant_branch]
 origin: default name for remote repository
 possible to work with several remote repositories hosted in different places
 
+
+
+
 ------------------------------ reset & go back ------------------------------
 
 git reset --hard HEAD^ : cancel last commit (the only one possible)
@@ -36,9 +42,15 @@ git show commit_ID:/path/to/file > file.old  : export previous version of file
 
 
 
-------------------------------  ------------------------------
+
+
+------------------------------ rebase ------------------------------
 
 git rebase ONLY if nobody is looking at the branch! Otherwise, git revert or something else
+
+
+
+
 
 ------------------------------  ------------------------------
 ------------------------------  ------------------------------
