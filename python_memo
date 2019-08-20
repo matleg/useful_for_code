@@ -26,6 +26,8 @@ __double_leading_underscore : __foo replaced by the interpreter by  _classname__
 _single_leading_underscore : _internal_name : private variable : ignored in "from xxx import *",
 unless specified in __all__
 
+single_trailing_underscore_ : avoid conflicts with keywords and build_exe_options
+
 
 
 -------------------------- multiple inheritance --------------------------
@@ -382,7 +384,16 @@ Car(color='red' , mileage=3812.4)
 AttributeError: "can't set attribute"
 
 
---------------------------  --------------------------
+
+-------------------------- site.py --------------------------
+
+automatically started when running python executable: python -m site 
+(site is imported from pythonpath and executed)
+
+
+
+
+
 --------------------------  --------------------------
 --------------------------  --------------------------
 --------------------------  --------------------------
