@@ -11,7 +11,7 @@
     tool = kdiff3
 
 [mergetool "meld"]
-    path = C:/Program Files (x86)/Meld/Meld.exe
+    path = "C:/Program Files (x86)/Meld/Meld.exe"
     trustExitCode = false
 
 [diff]
@@ -19,7 +19,7 @@
 
 [difftool "meld"]
     path = "C:/Program Files (x86)/Meld/Meld.exe"
-	prompt = false
+	  prompt = false
     trustExitCode = false
 
 [color]

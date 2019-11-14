@@ -52,7 +52,28 @@ git rebase ONLY if nobody is looking at the branch! Otherwise, git revert or som
 
 
 
-------------------------------  ------------------------------
+------------------------------ configure local and distant repositories ------------------------------
+
+from: https://gist.github.com/jpierson/b6c0815e9dd7078f6b8cc3cb9076ddf4
+
+git clone git@github...some-repo.git
+
+rename your origin remote to upstream
+git remote rename origin upstream
+
+Add a new origin
+git remote add origin git@github...my-fork
+
+Fetch from new origin
+git fetch origin
+
+Set origin master
+git branch --set-upstream-to origin/master master
+
+Push to fork
+git push origin
+
+
 ------------------------------  ------------------------------
 ------------------------------  ------------------------------
 ------------------------------  ------------------------------
