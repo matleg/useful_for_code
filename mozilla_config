@@ -1,0 +1,19 @@
+Mainly from: https://link-zilla.blogspot.com/2020/02/14-parametres-caches-de-firefox-activer.html
+
+and : https://lehollandaisvolant.net/?d=2020/01/02/11/28/39-ma-liste-des-tweaks-aboutconfig-dans-firefox
+
+- network.IDN_show_punycode : true   unicode characters in url
+
+- browser.tabs.closeWindowWithLastTab : false
+
+- browser.ui.zoom.force-user-scalable : true    force zoom
+
+- extensions.pocket.enabled : false    no pocket
+
+- browser.formfill.enable : false    data in forms
+
+- media.peerconnection.enabled : false    no service webRTC. Can leak IP even if VPN
+
+- browser.urlbar.trimURLs : false  
+
+- browser.sessionstore.interval : 120000 reduce disk access  
