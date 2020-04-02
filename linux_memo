@@ -389,7 +389,16 @@ chown --reference=reference_file file
 for n in `seq 7`; do dd if=/dev/urandom of=/dev/diskN ; done
 
 
----------------------------  ---------------------------
+
+
+--------------------------- Key bindings, up/down arrow searches through history ---------------------------
+
+bind '"\e[A": history-search-backward'
+bind '"\e[B": history-search-forward'
+bind '"\eOA": history-search-backward'
+bind '"\eOB": history-search-forward'
+
+
 ---------------------------  ---------------------------
 
 ---------------------------  ---------------------------
