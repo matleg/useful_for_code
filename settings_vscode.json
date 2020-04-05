@@ -33,7 +33,7 @@
     },
     //
     // php
-    "php.validate.executablePath": null,
+    "php.validate.executablePath": "/opt/lampp/bin/php",
     //
     // code-runner
     "code-runner.runInTerminal": true,
