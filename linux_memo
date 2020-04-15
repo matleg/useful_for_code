@@ -420,7 +420,24 @@ sed -irn 's/$my_variable(_toto)/$my_variable_\1/g' my_file
 
 
 
----------------------------  ---------------------------
+--------------------------- xargs command examples ---------------------------
+
+find . -name "*.jpg" -type f -print | xargs tar -cvzf pictures.tar.gz
+cat dl_links.txt | xargs wget
+echo 'one two three' | xargs mkdir
+#ls
+#one two three
+faster with xargs : 
+find ./foo -type f -name "*.txt" -exec rm {} \; 
+find ./foo -type f -name "*.txt" | xargs rm
+
+
+use {} with –i to replace arguments:
+ls /etc/*.conf | xargs -i cp {} /home/matleg/confs
+
+
+
+
 ---------------------------  ---------------------------
 ---------------------------  ---------------------------
 
