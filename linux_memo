@@ -38,27 +38,6 @@ cp /etc/vim/vimrc  ~/.vimrc
 
 
 
-
---------------------------- Key bindings, up/down arrow searches through history ---------------------------
-
-bind '"\e[A": history-search-backward'
-bind '"\e[B": history-search-forward'
-bind '"\eOA": history-search-backward'
-bind '"\eOB": history-search-forward'
-
-
-
-
-
---------------------------- local executables to path ---------------------------
-
-PATH="/home/mat/.local/bin:$PATH"
-
-
-
-
-
-
 --------------------------- samba ---------------------------
 
 [partages]
