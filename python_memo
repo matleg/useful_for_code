@@ -1,4 +1,12 @@
 
+-------------------------- modules to install --------------------------
+
+
+autopep8 black jupyter matplotlib numpy pandas pylint scikit-learn scipy seaborn yapf
+
+
+
+
 -------------------------- for...else syntax --------------------------
 
 for i in foo:
@@ -7,15 +15,6 @@ for i in foo:
 else:
     print("i was never 0")
 
-
-
-
--------------------------- shallow / deep copy --------------------------
-
-Making a shallow copy of an object won’t clone child objects.
-Therefore, the copy is not fully independent of the original.
-A deep copy of an object will recursively clone child objects.
- The clone is fully independent of the original, but creating a deep copy is slower.
  
  
 
@@ -52,13 +51,6 @@ class A:
 
 At the end of the program :
 foo_vars = {id(instance):instance.foo for instance in A.instances}
-
-
-
-
--------------------------- hashable object --------------------------
-
-hashable object : value that does not change, must have the method __hash__()
 
 
 

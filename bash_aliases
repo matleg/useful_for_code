@@ -17,7 +17,7 @@ alias egrep='egrep --color=auto'
 alias ff='find . -name'
 alias fgrep='fgrep --color=auto'
 
-function g { geany $* & }
+function g { gedit $* & }
 
 alias grep='grep --color=auto'
 alias gw='gwenview'
@@ -31,7 +31,7 @@ alias lsp='l *.py'
 alias maj='agu; agup; acl; agar'
 
 function mkcd() { mkdir "$@" && cd "$@"; }
-function n { gedit $* & }
+function n { pluma $* & }
 function na { nano $* & }
 
 alias p='pwd'

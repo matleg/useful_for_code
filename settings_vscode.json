@@ -1,12 +1,12 @@
 {
-    //general
+    "_comment": "general",
     "editor.rulers": [
         120
     ],
     "terminal.external.linuxExec": "/bin/bash",
     "terminal.integrated.shell.linux": "/bin/bash",
     "explorer.confirmDelete": false,
-    "workbench.iconTheme": "vscode-great-icons",
+    "workbench.iconTheme": "vscode-icons",
     "window.openFoldersInNewWindow": "on",
     "diffEditor.renderSideBySide": true,
     "editor.suggestSelection": "first",
@@ -17,8 +17,7 @@
         "**/.settings": true,
         "**/.factorypath": true
     },
-    //
-    //python
+    "_comment": "python",
     "python.jediEnabled": false,
     "python.formatting.yapfArgs": [
         "--style={ based_on_style: pep8, column_limit: 120 }"
@@ -31,11 +30,9 @@
     "[cpp]": {
         "editor.defaultFormatter": "ms-vscode.cpptools"
     },
-    //
-    // php
+    "_comment": "php",
     "php.validate.executablePath": "/opt/lampp/bin/php",
-    //
-    // code-runner
+    "_comment": "code-runner",
     "code-runner.runInTerminal": true,
     "code-runner.enableAppInsights": false,
     "code-runner.respectShebang": false,
@@ -47,7 +44,7 @@
         "cpp": "cd $dir && g++ $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
         "objective-c": "cd $dir && gcc -framework Cocoa $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
         "php": "/opt/lampp/bin/php",
-        "python": "python3.6 -u",
+        "python": "python3.8 -u",
         "perl": "perl",
         "perl6": "perl6",
         "ruby": "ruby",
