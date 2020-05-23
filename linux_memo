@@ -1,8 +1,31 @@
 
 --------------------------- softwares ---------------------------
 
-keepassxc p7zip-full tlp ark arp-scan bleachbit blender cryptsetup fdupes firefox gedit gimp git-all gparted hardinfo htop luckybackup meld ncdu okular photorec python3-pip redshift samba ssh vlc vim vncviewer
-
+arp-scan \
+bleachbit \
+blender \
+cryptsetup \
+fdupes \
+firefox \
+gedit \
+gimp \
+git \
+gparted \
+hardinfo \
+htop \
+luckybackup \
+meld \
+ncdu \
+okular \
+p7zip-full \
+python3-pip \
+redshift \
+samba \
+ssh \
+tlp \
+vim \
+vlc \
+xtightvncviewer
 
 
 
