@@ -23,6 +23,7 @@ redshift \
 samba \
 ssh \
 tlp \
+ubuntu-restricted-extras \
 vim \
 vlc \
 xtightvncviewer
