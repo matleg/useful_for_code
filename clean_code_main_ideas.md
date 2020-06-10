@@ -2,7 +2,7 @@
 from Clean Code A Handbook of Agile Software Craftsmanship,
 Robert C. Martin
 
--------------------------- names --------------------------
+##  names 
 
 leave the camp ground cleaner than you found it
 
@@ -24,7 +24,7 @@ searchable names (not i, a1, a2, ....)
 
 
 
--------------------------- functions --------------------------
+##  functions 
 
 assert_equals(expected, actual)   -> convention
 
@@ -41,7 +41,7 @@ don't repeat, don't duplicate
 
 
 
--------------------------- comments --------------------------
+##  comments 
 
 they are not maintained
 
@@ -61,7 +61,7 @@ do not comment old code, remove it
 
 
 
--------------------------- formatting --------------------------
+##  formatting 
 
 blank line : new concept
 
@@ -85,7 +85,7 @@ b bool False
 
 
 
--------------------------- objects and data structures --------------------------
+##  objects and data structures 
 
 no getters and setters, expose only public variables
 
@@ -99,7 +99,7 @@ data structures : expose data and have no significant behavior
 
 
 
--------------------------- errors handling --------------------------
+##  errors handling 
 
 checked exception : can be managed (e.g. wrong input)
 
@@ -107,7 +107,7 @@ unchecked exceptions : need to be logged, stop execution, important...
 
 
 
--------------------------- test driven development --------------------------
+##  test driven development 
 
 not write more tests than sufficient to fail
 
@@ -123,7 +123,7 @@ FIRST : fast, independant, repeatable, self-validity, timely (just before prod)
 
 
 
--------------------------- classes --------------------------
+##  classes 
 small
 
 SRP : single responsibility principle
@@ -135,7 +135,7 @@ name of the class : responsibility it fullfills
 
 
 
--------------------------- systems --------------------------
+##  systems 
 
 separate construction for use
 
@@ -145,7 +145,7 @@ prefer: stockexchange
 
 
 
--------------------------- concurrency --------------------------
+##  concurrency 
 
 keep concurrency-related code separately
 
@@ -153,7 +153,7 @@ limit access to the data that might be shared
 
 
 
--------------------------- smells and heuristics --------------------------
+##  smells and heuristics 
 
 encapsulate conditionals
 prefer : should_be_deleted(x)
@@ -162,6 +162,6 @@ than : if x>0 and ... then...
 avoid negative conditional
 
 
---------------------------  --------------------------
---------------------------  --------------------------
---------------------------  --------------------------
+##   
+##   
+##   

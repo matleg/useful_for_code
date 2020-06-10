@@ -1,5 +1,5 @@
 
--------------------------- modules to install --------------------------
+##  modules to install 
 
 
 autopep8 black jupyter matplotlib numpy pandas pylint scikit-learn scipy seaborn yapf
@@ -7,7 +7,7 @@ autopep8 black jupyter matplotlib numpy pandas pylint scikit-learn scipy seaborn
 
 
 
--------------------------- for...else syntax --------------------------
+##  for...else syntax 
 
 for i in foo:
     if i == 0:
@@ -18,7 +18,7 @@ else:
  
  
 
--------------------------- underscores --------------------------
+##  underscores 
 
 __double_leading_underscore : __foo replaced by the interpreter by  _classname__foo so that it does not overlap
 
@@ -30,7 +30,7 @@ single_trailing_underscore_ : avoid conflicts with keywords and build_exe_option
 
 
 
--------------------------- multiple inheritance --------------------------
+##  multiple inheritance 
 
 multiple inheritance : copy of the first method found
 class C(B,A): __init__ from B is copied, not from A.
@@ -38,7 +38,7 @@ super() returns the 1st method of the first parent (or grandparent) found
 
 
 
--------------------------- instances --------------------------
+##  instances 
 
 instance.value : looked for in : 1-instance, 2-subclass, 3-superclass, 4-object
 
@@ -55,7 +55,7 @@ foo_vars = {id(instance):instance.foo for instance in A.instances}
 
 
 
--------------------------- imports --------------------------
+##  imports 
 
 "clean" import
 1 - create a wrapper module separated from the code:
@@ -71,7 +71,7 @@ from lib import mylib
 
 
 
--------------------------- force reinstall --------------------------
+##  force reinstall 
 
 reinstall package when it really does not work!
 pip install --user --force-reinstall --ignore-installed --no-binary :all: package name
@@ -80,7 +80,7 @@ pip install --user --force-reinstall --ignore-installed --no-binary :all: packag
 
 
 
--------------------------- concepts --------------------------
+##  concepts 
 
 LBYL: look before you leap : if key in dic ....
 EAFP : easier to ask for forgiveness than permission : try: .... except: ....
@@ -88,7 +88,7 @@ EAFP : easier to ask for forgiveness than permission : try: .... except: ....
 
 
 
--------------------------- imports / packages --------------------------
+## imports / packages 
 
 import mod
 mod.__file__
@@ -99,7 +99,7 @@ python >=3.3 : __init__.py not necessary to make a package
 
 
 
--------------------------- pytest --------------------------
+##  pytest 
 
 pytest: assert an error is raised:
 with pytest.raises(ValueError):
@@ -110,7 +110,7 @@ with pytest.raises(ValueError):
 
 
     
--------------------------- mutual imports --------------------------
+##  mutual imports 
 
 Mutual top-level imports: from SO
 
@@ -125,7 +125,7 @@ Because now each module requires the other module to already be imported
 
 
 
--------------------------- sequence --------------------------
+##  sequence 
 
 Why is “1000000000000000 in range(1000000000000001)” so fast in Python 3?  from SO
 
@@ -153,7 +153,7 @@ True
 
 
 
--------------------------- default values parameters & mutable arguments --------------------------
+## default values parameters & mutable arguments
 
 For functions:
 
@@ -184,7 +184,7 @@ class A:
 >>> g2.v
 ['c']
 
-------------------------
+
 
 def foo(x=[]):
 ...     x.append(1)
@@ -214,12 +214,14 @@ Instead, you should use a sentinel value denoting "not given" and replace with t
 
 
 
--------------------------- build with cx_Freeze --------------------------
+##  build with cx_Freeze 
 
 windows command : "python setup.py build"
 
 in setup.py:
-############################################## begin
+
+```python
+
 from cx_Freeze import setup, Executable
 
 packages = ["pkg_resources",
@@ -241,22 +243,20 @@ setup(name="esiam_server",
       description="grpc aum esiam server",
       options={"build_exe": build_exe_options},
       executables=[Executable("esiam_server.py", base=base)])
-############################################## end
+```
 
 
 
 
--------------------------- split only once --------------------------
-
-x, commands = input().split(";",1)
 
 
 
 
--------------------------- pip trick --------------------------
+##  pip trick 
 
 Use pip (version 6 or later) with the -t <directory> flag to
 copy the libraries into the folder you created in the previous step. For example:
+```
 pip install -t lib/ <library_name>
 
 from https://pip.pypa.io/en/stable/reference/pip_install/:
@@ -265,11 +265,11 @@ from https://pip.pypa.io/en/stable/reference/pip_install/:
 Install packages into <dir>. 
 By default this will not replace existing files/folders in <dir>. 
 Use –upgrade to replace existing packages in <dir> with new versions.
+```
 
 
 
-
--------------------------- subprocess popen VS call --------------------------
+##  subprocess popen VS call 
 
 from SO:
 returncode = call(*args, **kwargs)
@@ -298,7 +298,7 @@ it's a thin wrapper around Popen.
 
 
 
--------------------------- bitwise operations --------------------------
+##  bitwise operations 
 
 bin         = 00000100000
 ~bin        = 11111011111
@@ -314,10 +314,11 @@ x    = 0000100110
 
 
 
--------------------------- python composition --------------------------
+##  python composition 
 
 from http://blog.thedigitalcatonline.com/blog/2014/08/20/python-3-oop-part-3-delegation-composition-and-inheritance/
 
+```python
 class A:
     def __init__(self, number, status):
         self.number = number
@@ -343,9 +344,9 @@ class B:
     def __getattr__(self, attr):
         return getattr(self.a, attr)
 
+```
 
-
--------------------------- sort dict by value --------------------------
+##  sort dict by value 
 
 from realpython:
 
@@ -356,7 +357,7 @@ dx = {'a': 4, 'b': 3, 'c': 2, 'd': 1}
 
 
 
--------------------------- namedtuple --------------------------
+##  namedtuple 
 
 from realpython:
 
@@ -378,7 +379,7 @@ AttributeError: "can't set attribute"
 
 
 
--------------------------- site.py --------------------------
+##  site.py 
 
 automatically started when running python executable: python -m site 
 (site is imported from pythonpath and executed)
@@ -387,11 +388,11 @@ automatically started when running python executable: python -m site
 
 
 
---------------------------  --------------------------
---------------------------  --------------------------
---------------------------  --------------------------
---------------------------  --------------------------
---------------------------  --------------------------
+##   
+##   
+##   
+##   
+##   
 
 
 

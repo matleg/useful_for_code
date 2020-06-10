@@ -1,5 +1,6 @@
 
--------------------------- static keyword --------------------------
+##  static keyword 
+
 
 from https://callicode.fr/blog/post/variables_statiques_python.html:
 
@@ -36,7 +37,7 @@ for i in range(3):
     compteur()
 
 
--------------------------- include --------------------------
+##  include 
 
 #include <stdio.h>  --> libraries
 #include "game.h"  --> local file
@@ -50,7 +51,7 @@ headers like stdio.h, stdlib.h, ... contain prototypes of standard functions (pr
 
 
 
--------------------------- array --------------------------
+##  array 
 
 fixed size! never : int array[var], always int array[5]
 
@@ -58,7 +59,7 @@ array[1]  <->  *(array+1)  : array is an adress, array[1] is a value
 
 
 
--------------------------- struct example --------------------------
+##  struct example 
 
 #include <stdio.h>
 
@@ -86,7 +87,7 @@ int main(int argc, char const *argv[])
 
 
 
--------------------------- strings --------------------------
+##  strings 
 
 
 
@@ -115,10 +116,10 @@ int main(int argc, char const *argv[])
 }
 
 
---------------------------  --------------------------
+##   
 
 
---------------------------  --------------------------
+##   
 
 
 

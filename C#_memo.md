@@ -1,5 +1,5 @@
 
--------------------------- accessibility levels --------------------------
+##  accessibility levels 
 
 from : https://gist.github.com/mrkline/8302959
 
@@ -14,7 +14,7 @@ from : https://gist.github.com/mrkline/8302959
 
 
 
--------------------------- virtual --------------------------
+##  virtual 
 
 from SO:
 
@@ -41,7 +41,7 @@ class B : A
 
 
 
--------------------------- abstract classes --------------------------
+##  abstract classes 
 
 from : https://members.loria.fr/ABelaid/Enseignement/FC/Cours7-Classes-abstraites.pdf
        https://zaiste.net/abstract_classes_in_python/
@@ -82,20 +82,20 @@ AFAIK, raising NotImplementedError is enough for pylint to understand that your 
 
 
 
---------------------------  --------------------------
+##   
 
 
 
 
---------------------------  --------------------------
+##   
 
 
---------------------------  --------------------------
+##   
 
 
 
 
---------------------------  --------------------------
+##   
 
 
---------------------------  --------------------------
+##   
