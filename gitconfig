@@ -3,8 +3,11 @@
   ci = commit
   br = branch
   st = status
-  hist = log --all --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit 
-  # %h short hash, %s commit subject, %ad author date, %an author name, %d ref name
+  lg = log --color --abbrev-commit --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+  lgg = log --all --color --abbrev-commit --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' 
+  # Cred : color red
+  # %h short hash,  %d ref name, %s commit subject, %cr committer date relative, %an author name
+  # https://git-scm.com/docs/pretty-formats
   
 
 [merge]
