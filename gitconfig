@@ -3,7 +3,7 @@
   ci = commit
   br = branch
   st = status
-  hist = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit 
+  hist = log --all --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit 
   # %h short hash, %s commit subject, %ad author date, %an author name, %d ref name
   
 
