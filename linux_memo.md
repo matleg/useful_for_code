@@ -1,5 +1,5 @@
 
---------------------------- softwares ---------------------------
+## softwares
 
 arp-scan \
 bleachbit \
@@ -30,7 +30,7 @@ xtightvncviewer
 
 
 
---------------------------- vimrc ---------------------------
+## vimrc
 
 cp /etc/vim/vimrc  ~/.vimrc
 /!\ compatible with vi option   >>  mouse problems
@@ -38,7 +38,7 @@ cp /etc/vim/vimrc  ~/.vimrc
 
 
 
---------------------------- samba ---------------------------
+## samba
 
 [partages]
 comment = partages
@@ -54,7 +54,7 @@ sudo /etc/init.d/samba start,restart,stop
 
 
 
---------------------------- linux ---------------------------
+## linux
 
 Public directory (c)  in private directory (b)
 
@@ -66,7 +66,7 @@ touch a/b/c/this.txt
 
 
 
---------------------------- auto start vncserver ---------------------------
+## auto start vncserver
 
 
 install tightvncserver on server (e.g. raspberry) and gvncviewer on client
@@ -96,7 +96,7 @@ also try to install x11vnc for auto start
 
 
 
---------------------------- scan IP addresses on network ---------------------------
+## scan IP addresses on network
 
 install arp-scan
 sudo arp-scan -l (for  --localnet)
@@ -108,7 +108,7 @@ nmap -T4 -sP 192.168.1.0-254 (T4: profile agressive, -sP: scan ports
 
 
 
---------------------------- fix IP addresses on network ---------------------------
+## fix IP addresses on network
 
 add in file /ect/hosts of client and server
 the adresses, example :
@@ -119,7 +119,7 @@ the adresses, example :
 
 
 
---------------------------- configuration keyboard raspberry ---------------------------
+## configuration keyboard raspberry
 
 sudo dpkg-reconfigure keyboard-configuration
 
@@ -131,25 +131,31 @@ XKBLAYOUT=fr
 
 
 
---------------------------- dd ---------------------------
+## dd
 
 to find SD card
+```bash
 sudo fdisk -l
+```
 
 to create SD card
+```bash
 sudo dd bs=4M if=2017-11-29-raspbian-stretch.img of=/dev/mmcblk0p status=progress conv=fsync
+```
 
 (if: input file, of:output file, bs: block size)
 
 to restore
+```bash
 sudo dd if=~/chemin/vers/le/fichier/de/backup.img of=/dev/mmcblk0  bs=512
+```
 
 bits zeros: if=/dev/zero
 random: if=/dev/urandom
 
 
 
---------------------------- simple http server ---------------------------
+## simple http server
 
 python -m SimpleHTTPServer 9988
 http://adresseip:9988/
@@ -157,28 +163,29 @@ http://adresseip:9988/
 
 
 
---------------------------- simple git server ---------------------------
+## simple git server
 
 install git instaweb
 script to execute at each start with, e.g.:
 crontab -e
 @reboot /home/pi/startup_script.sh
 
+```bash
 #!/bin/bash
 cd my_git_repo.git
 git instaweb --httpd=webrick
 cd /home/pi
+```
 
 
-
---------------------------- auto start gitlab CE server ---------------------------
+## auto start gitlab CE server
 
 sudo systemctl enable gitlab-runsvdir.service
 sudo systemctl disable gitlab-runsvdir.service
 
 
 
---------------------------- battery management linux ---------------------------
+## battery management linux
 
 TLP, alias « Linux Advanced Power Management »
 
@@ -186,10 +193,11 @@ TLP, alias « Linux Advanced Power Management »
 
 
 
---------------------------- wifi auto reconnection raspberry ---------------------------
+## wifi auto reconnection raspberry
 
 script to execute in  /etc/rc.local (at each start)
 
+```bash
 #!/bin/bash
 
 while true ; do
@@ -200,6 +208,7 @@ while true ; do
                 sleep 20
         fi
 done
+```
 
 (for example : /home/pi/network_monitor.sh & )
 
@@ -207,7 +216,7 @@ done
 
 
 
---------------------------- bash source ---------------------------
+## bash source
 
 ./script
 -> executes the script. When done, changes made to the environment are discarded.
@@ -222,7 +231,7 @@ source and . are synonymous in Bash.
 
 
 
---------------------------- rsync slashes memo ---------------------------
+## rsync slashes memo
 
 rsync source destination/                          !=        rsync source/ destination/ 
 (creation of source in destination)                !=       (copy of content from source into destination)
@@ -234,7 +243,7 @@ rsync source destination/     =       rsync source destination    (slash in dest
 
 
 
---------------------------- umask memo ---------------------------
+## umask memo
 
 /etc/profile sets 022, removing write perms to group + others.
 Set a more restrictive umask: i.e. no exec perms for others:
@@ -245,7 +254,7 @@ umask 077
 
 
 
---------------------------- rsync options ---------------------------
+## rsync options
 
 -a (not used), equivalent to: -rlptgoD (no -H,-A,-X : hard links, ACLs (implies -p), extended attributes)
 preserves permissions (owners, groups), times, symbolic links, and devices
@@ -259,7 +268,7 @@ preserves permissions (owners, groups), times, symbolic links, and devices
 
 
 
---------------------------- info about a command ---------------------------
+## info about a command
 
 bash: type
 csh : which
@@ -269,7 +278,7 @@ type echo  -> builtin shell
 
 
 
---------------------------- commands execution ---------------------------
+## commands execution
 
 c1 ; c2  -> c1 then c2
 c1 && c2  -> c2 if no error in c1
@@ -283,7 +292,7 @@ atq
 
 
 
---------------------------- sticky bit - SUID/GUID ---------------------------
+## sticky bit - SUID/GUID
 
 sticky bit:
 chmod 1777 directory    or    chmod o+t directory
@@ -302,7 +311,7 @@ chmod 2777 command   or   chmod g+s command
 
 
 
---------------------------- various linux shell sys admin ---------------------------
+## various linux shell sys admin
 
 
 ? replaces 1 character  -> ls guide_unix.??x
@@ -319,7 +328,7 @@ possible to mount a disk at IP address?
 
 
 
---------------------------- script execution ---------------------------
+## script execution
 
 . /path/to/script.sh                 !=               ./path/to/script.sh
 execute in current shell                          opens new shell
@@ -327,7 +336,7 @@ execute in current shell                          opens new shell
 
 
 
---------------------------- linux VS windows ---------------------------
+## linux VS windows
 
 \r ASCII CR  -> end of line, without jump
 \n ASCII LF  -> next line (linux)
@@ -336,7 +345,7 @@ execute in current shell                          opens new shell
 
 
 
---------------------------- linux /etc/init.d VS /etc/rc.local ---------------------------
+## linux /etc/init.d VS /etc/rc.local
 
 use:
 /etc/init.d/command OPTION
@@ -352,12 +361,13 @@ OPTION can be: start, stop, reload, restart, force-reload
 
 
 
---------------------------- power button raspberry ---------------------------
+## power button raspberry
 
 shorting pins 5 and 6 (GPIO3 and GND) together will wake the Pi up from a halt state
 
         - create listen-for-shutdown.py:
 
+```python
 #!/usr/bin/env python
 
 import RPi.GPIO as GPIO
@@ -368,12 +378,13 @@ GPIO.setup(3, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 GPIO.wait_for_edge(3, GPIO.FALLING)
 
 subprocess.call(['shutdown', '-h', 'now'], shell=False)
-
+```
 		- sudo mv listen-for-shutdown.py /usr/local/bin/
 		- sudo chmod +x /usr/local/bin/listen-for-shutdown.py
 
 		- create listen-for-shutdown.sh:
 
+```bash
 #! /bin/sh
 case "$1" in
   start)
@@ -388,33 +399,39 @@ case "$1" in
     ;;
 esac
 exit 0
+```
 
-		- sudo mv listen-for-shutdown.sh /etc/init.d/
-		- sudo chmod +x /etc/init.d/listen-for-shutdown.sh
-		- sudo update-rc.d listen-for-shutdown.sh defaults    (register the script to run on boot with defaults runlevels)
+```bash
 
+sudo mv listen-for-shutdown.sh /etc/init.d/
+sudo chmod +x /etc/init.d/listen-for-shutdown.sh
+sudo update-rc.d listen-for-shutdown.sh defaults    
+#(register the script to run on boot with defaults runlevels)
+```
 
 
 		
---------------------------- Copy File Permissions to Another File ---------------------------
+## Copy File Permissions to Another File
 
+```bash
 chmod --reference=reference_file file
 
 chown --reference=reference_file file
+```
 
 
 
 
-
---------------------------- really delete data on disk ---------------------------
+## really delete data on disk
 (from Korben)
 
+```bash
 #!/bin/bash
 for n in `seq 7`; do dd if=/dev/urandom of=/dev/diskN ; done
+```
 
 
-
---------------------------- regex capture group ---------------------------
+## regex capture group
 
 
 what is between () is captured and can be reused as a variable ($1)
@@ -430,7 +447,9 @@ changes all : ${variable} to "$variable" : variable is captured by ([a-zA-Z]+)
 
 with sed:
 
+```bash
 sed -irn 's/$my_variable(_toto)/$my_variable_\1/g' my_file 
+```
 
 -r regex extended
 -n quiet
@@ -451,7 +470,7 @@ $ echo "123.456.78" |sed 's/\([0-9]*\)\.\([0-9]*\)\.\([0-9]*\)/\1 : \2 : \3/'
 ```
 
 
---------------------------- regex capture date ---------------------------
+## regex capture date
 
 ```
 grep -E ",'[0-9]{4}-[0-9]{2}-[0-9]{2}'," my_file   # -E : extended regex
@@ -464,8 +483,9 @@ sed -ri "s/'((0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/[12][0-9]{3} [012][0-9]:
 
 
 
---------------------------- xargs command examples ---------------------------
+## xargs command examples
 
+```bash
 find . -name "*.jpg" -type f -print | xargs tar -cvzf pictures.tar.gz
 cat dl_links.txt | xargs wget
 echo 'one two three' | xargs mkdir
@@ -474,32 +494,34 @@ echo 'one two three' | xargs mkdir
 faster with xargs : 
 find ./foo -type f -name "*.txt" -exec rm {} \; 
 find ./foo -type f -name "*.txt" | xargs rm
-
+```
 
 use {} with –i to replace arguments:
+
+```bash
 ls /etc/*.conf | xargs -i cp {} /home/matleg/confs
+```
 
 
 
-
----------------------------  ---------------------------
-
+## 
 
 
----------------------------  ---------------------------
 
----------------------------  ---------------------------
----------------------------  ---------------------------
----------------------------  ---------------------------
+## 
+
+## 
+## 
+## 
 
 
----------------------------  ---------------------------
----------------------------  ---------------------------
----------------------------  ---------------------------
+## 
+## 
+## 
 
----------------------------  ---------------------------
----------------------------  ---------------------------
----------------------------  ---------------------------
+## 
+## 
+## 
 
 
 
