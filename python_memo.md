@@ -1,20 +1,32 @@
 
 ##  modules to install 
 
-
-autopep8 black jupyter matplotlib numpy pandas pylint scikit-learn scipy seaborn yapf
-
+```bash
+python3 -m pip install
+autopep8 \
+black\ 
+jupyter\ 
+matplotlib\ 
+numpy\ 
+pandas\ 
+pylint\ 
+scikit-learn\ 
+scipy\ 
+seaborn\ 
+yapf
+```
 
 
 
 ##  for...else syntax 
 
+```python
 for i in foo:
     if i == 0:
         break
 else:
     print("i was never 0")
-
+```
  
  
 
@@ -43,14 +55,18 @@ super() returns the 1st method of the first parent (or grandparent) found
 instance.value : looked for in : 1-instance, 2-subclass, 3-superclass, 4-object
 
 keep track of instances:
+```python
 class A:
     instances = []
     def __init__(self, foo):
         self.foo = foo
         A.instances.append(self)
+```
 
 At the end of the program :
+```python
 foo_vars = {id(instance):instance.foo for instance in A.instances}
+```
 
 
 
@@ -59,23 +75,27 @@ foo_vars = {id(instance):instance.foo for instance in A.instances}
 
 "clean" import
 1 - create a wrapper module separated from the code:
+```python
 import sys
 import os
 sys.path.insert(0, os.path.join(...,lib))
 import mylib
 del sys.path[0]
+```
 
 2 -
+```python
 from lib import mylib
-
+```
 
 
 
 ##  force reinstall 
 
 reinstall package when it really does not work!
+```bash
 pip install --user --force-reinstall --ignore-installed --no-binary :all: package name
-
+```
 
 
 
@@ -90,10 +110,11 @@ EAFP : easier to ask for forgiveness than permission : try: .... except: ....
 
 ## imports / packages 
 
+```python
 import mod
 mod.__file__
 > 'C:\\users\\mat\\mod.py'
-
+```
 python >=3.3 : __init__.py not necessary to make a package
 
 
@@ -102,9 +123,10 @@ python >=3.3 : __init__.py not necessary to make a package
 ##  pytest 
 
 pytest: assert an error is raised:
+```python
 with pytest.raises(ValueError):
     fibonacci(-1)
-
+```
 
 
 
@@ -139,6 +161,7 @@ For example, 994 is in range(4, 1000, 2) because:
 
 
 range is not a generator:
+```python
 >>> a = range(5)
 >>> print(list(a))
 [0, 1, 2, 3, 4]
@@ -149,7 +172,7 @@ range actually is a sequence, just like a list:
 >>> import collections.abc
 >>> isinstance(a, collections.abc.Sequence)
 True
-
+```
 
 
 
@@ -157,6 +180,7 @@ True
 
 For functions:
 
+```python
 In [7]: def f(l=[1,2,3]):
    ...:     l.append(4)
    ...:     return l
@@ -170,10 +194,11 @@ Out[9]: [5, 5, 4]
 
 In [10]: f()
 Out[10]: [1, 2, 3, 4, 4]
-
+```
 
 For class variables:
 
+```python
 class A:
     v = ['c', 'p']
  
@@ -183,9 +208,10 @@ class A:
 'p'
 >>> g2.v
 ['c']
+```
 
 
-
+```python
 def foo(x=[]):
 ...     x.append(1)
 ...     print x
@@ -196,9 +222,11 @@ def foo(x=[]):
 [1, 1]
 >>> foo()
 [1, 1, 1]
+```
 
 Instead, you should use a sentinel value denoting "not given" and replace with the mutable you'd like as default:
 
+```python
 >>> def foo(x=None):
 ...     if x is None:
 ...         x = []
@@ -208,7 +236,7 @@ Instead, you should use a sentinel value denoting "not given" and replace with t
 [1]
 >>> foo()
 [1]
-
+```
 
 
 
@@ -272,14 +300,19 @@ Use –upgrade to replace existing packages in <dir> with new versions.
 ##  subprocess popen VS call 
 
 from SO:
+```python
 returncode = call(*args, **kwargs)
+```
 
 is basically the same as calling
 
+```python
 returncode = Popen(*args, **kwargs).wait()
+```
 
 call is just a convenience function. It's implementation in CPython is in subprocess.py:
 
+```python
 def call(*popenargs, timeout=None, **kwargs):
     """Run command with arguments.  Wait for command to complete or
     timeout, then return the returncode attribute.
@@ -293,7 +326,7 @@ def call(*popenargs, timeout=None, **kwargs):
             p.kill()
             p.wait()
             raise
-
+```
 it's a thin wrapper around Popen.
 
 
@@ -350,17 +383,19 @@ class B:
 
 from realpython:
 
+```python
 dx = {'a': 4, 'b': 3, 'c': 2, 'd': 1}
 
 >>> sorted(dx.items(), key=lambda x: x[1])
 [('d', 1), ('c', 2), ('b', 3), ('a', 4)]
-
+```
 
 
 ##  namedtuple 
 
 from realpython:
 
+```python
 from collections import namedtuple
 Car = namedtuple('Car', 'color mileage')
 my_car = Car('red', 3812.4)
@@ -376,7 +411,7 @@ Car(color='red' , mileage=3812.4)
 # Like tuples, namedtuples are immutable:
 >>> my_car.color = 'blue'
 AttributeError: "can't set attribute"
-
+```
 
 
 ##  site.py 
