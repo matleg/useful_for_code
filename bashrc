@@ -43,7 +43,7 @@ PATH="/home/mat/.local/bin:$PATH"
 
 
 # prompt for git
-if [ -f ~/.git-prompt ]; then
+if [ -f ~/.git-prompt.sh ]; then
     . ~/.git-prompt.sh
     PS1="${Blue}\u@\h ${Green}\w${Yellow}\$(__git_ps1 ' (%s)')${NC} $ "
 fi
