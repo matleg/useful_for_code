@@ -43,9 +43,10 @@ PATH="/home/mat/.local/bin:$PATH"
 
 
 # prompt for git
-source ~/.git-prompt.sh  # file to DL
-PS1="${Cyan}\u@\h ${Green}\w${Yellow}\$(__git_ps1 ' (%s)')${NC} $ "
-
+if [ -f ~/.git-prompt ]; then
+    . ~/.git-prompt.sh
+    PS1="${Blue}\u@\h ${Green}\w${Yellow}\$(__git_ps1 ' (%s)')${NC} $ "
+fi
 
 
 # Key bindings, up/down arrow searches through history
