@@ -4,6 +4,7 @@
 
 from https://callicode.fr/blog/post/variables_statiques_python.html:
 
+```C
 void compteur(void){
     static int c = 0;
     c = c + 1;
@@ -21,12 +22,14 @@ void main(void) {
 >Appel n : 2
 >Appel n : 3
 
+
 The static variable c is local to the function compteur but it keeps its value between 2 calls
 (thanks to static keyword).
-
+```
 
 
 python:
+```python
 def compteur():
     if not hasattr(compteur, 'c'):
         compteur.c = 0
@@ -35,10 +38,11 @@ def compteur():
 
 for i in range(3):
     compteur()
-
+```
 
 ##  include 
 
+```C
 #include <stdio.h>  --> libraries
 #include "game.h"  --> local file
 
@@ -48,6 +52,7 @@ headers like stdio.h, stdlib.h, ... contain prototypes of standard functions (pr
 
 #ifndef used in .h to avoid infinite inclusions
 
+```
 
 
 
@@ -61,6 +66,7 @@ array[1]  <->  *(array+1)  : array is an adress, array[1] is a value
 
 ##  struct example 
 
+```
 #include <stdio.h>
 
 typedef struct Personne;
@@ -84,6 +90,7 @@ int main(int argc, char const *argv[])
 
     return 0;
 }
+```
 
 
 
@@ -91,7 +98,7 @@ int main(int argc, char const *argv[])
 
 
 
-
+```C
 #include <string.h>
 
 int main(int argc, char const *argv[])
@@ -114,7 +121,7 @@ int main(int argc, char const *argv[])
 
     return 0;
 }
-
+```
 
 ##   
 
