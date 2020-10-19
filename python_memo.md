@@ -103,6 +103,7 @@ pip install --user --force-reinstall --ignore-installed --no-binary :all: packag
 ##  concepts 
 
 LBYL: look before you leap : if key in dic ....
+
 EAFP : easier to ask for forgiveness than permission : try: .... except: ....
 
 
@@ -333,16 +334,17 @@ it's a thin wrapper around Popen.
 
 ##  bitwise operations 
 
-bin         = 00000100000
-~bin        = 11111011111
 
-nb          = 00011111100
-nb &~ bin   = 00011011100
+bin         = 00000100000  
+~bin        = 11111011111  
 
-~x = -x-1
-x    = 0000100110
--x   = 1111011000  --> NOT ...001!
--x-1 = 1111011001 = ~x
+nb          = 00011111100  
+nb &~ bin   = 00011011100  
+
+~x = -x-1  
+x    = 0000100110  
+-x   = 1111011000  --> NOT ...001!  
+-x-1 = 1111011001 = ~x  
 
 
 
