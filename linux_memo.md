@@ -3,12 +3,9 @@
 
 arp-scan \
 bleachbit \
-blender \
 cryptsetup \
 fdupes \
-firefox \
 gedit \
-gimp \
 git-all \
 gparted \
 hardinfo \
@@ -17,17 +14,11 @@ luckybackup \
 meld \
 ncdu \
 p7zip-full \
-pluma \
-python3-pip \
-redshift \
 samba \
 ssh \
-tlp \
-ubuntu-restricted-extras \
 vim \
 vlc \
-xtightvncviewer
-
+whois 
 
 
 ## vimrc
