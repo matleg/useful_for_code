@@ -33,6 +33,7 @@ function mkcd() { mkdir "$@" && cd "$@"; }
 function n { pluma $* & }
 function na { nano $* & }
 
+alias nano='vim'
 alias p='pwd'
 alias pku='pkill -u mat'
 alias psa='ps -ef | grep mat '
