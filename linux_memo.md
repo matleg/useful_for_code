@@ -20,15 +20,6 @@ vim \
 vlc \
 whois 
 
-
-## vimrc
-
-cp /etc/vim/vimrc  ~/.vimrc
-/!\ compatible with vi option   >>  mouse problems
-
-
-
-
 ## samba
 
 [partages]
@@ -169,16 +160,12 @@ cd /home/pi
 ```
 
 
+
+
 ## auto start gitlab CE server
 
 sudo systemctl enable gitlab-runsvdir.service
 sudo systemctl disable gitlab-runsvdir.service
-
-
-
-## battery management linux
-
-TLP, alias « Linux Advanced Power Management »
 
 
 
