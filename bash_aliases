@@ -39,6 +39,7 @@ alias pku='pkill -u mat'
 alias psa='ps -ef | grep mat '
 alias psg='ps -ef | grep '
 alias rm='rm -rf'
+alias running_services='systemctl list-units  --type=service  --state=running'
 alias src='source ~/.bashrc'
 alias sudo='sudo '  # for autocompletion (first word after ' ')
 alias t='tail -f'
