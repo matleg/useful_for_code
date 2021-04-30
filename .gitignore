@@ -1,5 +1,9 @@
 # partly from :  https://github.com/github/gitignore
 
+# to use as a global .gitignore
+# mv .gitignore ~/.gitignore_global
+# git config --global core.excludesFile '~/.gitignore_global'
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -107,6 +111,9 @@ venv.bak/
 
 #pycharm
 .idea
+
+#vscode
+.vscode
 
 #dolphin
 .directory
