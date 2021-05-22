@@ -14,6 +14,8 @@ and : https://lehollandaisvolant.net/?d=2020/01/02/11/28/39-ma-liste-des-tweaks-
 
 - media.peerconnection.enabled : false    no service webRTC. Can leak IP even if VPN
 
+- network.dns.disableIPv6 : when connected to vpn if vpn provider does not cover ipv6
+
 - browser.urlbar.trimURLs : false  
 
 - browser.sessionstore.interval : 120000 reduce disk access  
