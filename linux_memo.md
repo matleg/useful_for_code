@@ -7,6 +7,7 @@ sudo apt install arp-scan bash-completion bleachbit cryptsetup dnsutils elinks f
 
 ## samba
 
+```
 [partages]
 comment = partages
 path = "/media/pi/cle57"
@@ -16,8 +17,11 @@ create mask = 0644
 directory mask = 0755
 force user = pi
 
-sudo /etc/init.d/samba start,restart,stop
+sudo /etc/init.d/samba start
+sudo /etc/init.d/samba restart
+sudo /etc/init.d/samba stop
 
+```
 
 
 
@@ -25,11 +29,12 @@ sudo /etc/init.d/samba start,restart,stop
 
 Public directory (c)  in private directory (b)
 
+```sh
 mkdir a/b/c
 chmod 711 a/b
 sudo chown root a/b
 touch a/b/c/this.txt
-
+```
 
 
 
@@ -37,27 +42,49 @@ touch a/b/c/this.txt
 
 
 install tightvncserver on server (e.g. raspberry) and gvncviewer on client
+
 create file /home/pi/.config/autostart/tightvnc.desktop
+
+```
 #!/bin/sh
 [Desktop Entry]
 Type=Application
 Name=tightvncserver
 Exec=vncserver :1
 StartupNotify=false
+```
 
-starting command is : vncserver -geometry 1600x900 :1 (connexions on port 1)
+Start command is : 
+
+```
+vncserver -geometry 1600x900 :1 (connexions on port 1)
+```
 
 command to connect:
+```
 "vncviewer <adresseipOuHost>:1 &"
+```
 or
+```
 "gvncviewer <adresseipOuHost>:1 &"
-no username!!!
+#no username!!!
+```
 
-if does not work: sudo apt-get purge xxxxxxx; sudo apt-get install xxxxxxx
-xxxxxxx=tightvncserver
-        tightvnc-java
-        
-also try to install x11vnc for auto start
+if does not work: 
+
+```bash
+sudo apt purge tightvncserver
+sudo apt install tightvncserver
+sudo apt purge tightvnc-java
+sudo apt install tightvnc-java
+```
+
+also try :
+
+```
+sudo apt install x11vnc
+```
+for auto start
 
 
 
@@ -73,29 +100,14 @@ nmap -T4 -sP 192.168.1.0-254 (T4: profile agressive, -sP: scan ports
 0-254: all addresses)
 
 
-
-
-## fix IP addresses on network
-
-add in file /ect/hosts of client and server
-the adresses, example :
-192.168.1.1	    rpi1
-192.168.1.2	    rpi2
-192.168.1.3 	main_pc
-192.168.1.4     osmc
-
-
-
 ## configuration keyboard raspberry
-
+```
 sudo dpkg-reconfigure keyboard-configuration
 
 sudo vim /etc/default/keyboard
 XKBLAYOUT=gb
 XKBLAYOUT=fr
-
-
-
+```
 
 
 ## dd
@@ -115,16 +127,18 @@ sudo dd bs=4M if=2017-11-29-raspbian-stretch.img of=/dev/mmcblk0p status=progres
 to restore
 ```bash
 sudo dd if=~/chemin/vers/le/fichier/de/backup.img of=/dev/mmcblk0  bs=512
+
+# bits zeros: if=/dev/zero
+# random: if=/dev/urandom
 ```
-
-bits zeros: if=/dev/zero
-random: if=/dev/urandom
-
 
 
 ## simple http server
 
+```
 python -m SimpleHTTPServer 9988
+```
+
 http://adresseip:9988/
 
 
@@ -145,16 +159,12 @@ cd /home/pi
 ```
 
 
-
-
 ## auto start gitlab CE server
 
+```
 sudo systemctl enable gitlab-runsvdir.service
 sudo systemctl disable gitlab-runsvdir.service
-
-
-
-
+```
 
 ## wifi auto reconnection raspberry
 
@@ -223,9 +233,13 @@ umask 077
 preserves permissions (owners, groups), times, symbolic links, and devices
 
 -l, --links                 copy symlinks as symlinks
+
 -L, --copy-links            transform symlink into referent file/dir
+
 -p -o -g permissions, owner, group
+
 -E preserve executability
+
 -t preserve modification times
 
 
@@ -244,30 +258,42 @@ type echo  -> builtin shell
 ## commands execution
 
 c1 ; c2  -> c1 then c2
+
 c1 && c2  -> c2 if no error in c1
+
 c1 || c2  -> c2 if error in c1
 
+
 start command at time & date :
+
 at 13:14 9/23/18 command         ctrl+D
 
+
 list jobs:
+
 atq
 
 
 
 ## sticky bit - SUID/GUID
 
+
 sticky bit:
+
 chmod 1777 directory    or    chmod o+t directory
+
 1: allow users to delete only files they own
 
 
 SUID/GUID:
+
 rights allowing to execute a command with command's rights and not with user's rights. the command is usually
 a system tool:
+
 /usr/bin/passwd : _rwsr_xr_x  -> bob can take roots' rights to execute the command
 
 chmod 4777 command   or   chmod u+s command
+
 chmod 2777 command   or   chmod g+s command
 
 
@@ -282,20 +308,14 @@ chmod 2777 command   or   chmod g+s command
 inode : unique file number on the partition
 
 simple quote ' ' : avoids characters expansion:  '$USER' -> $USER
+
 double quote " " : allows $ to keep its meaning "$USER" -> mat
 
 possible to mount a disk at IP address?
+
 /ipadress/path/to/disk/......
+
 /ipadresstodisk/.........
-
-
-
-
-## script execution
-
-. /path/to/script.sh                 !=               ./path/to/script.sh
-execute in current shell                          opens new shell
-
 
 
 
@@ -304,7 +324,6 @@ execute in current shell                          opens new shell
 \r ASCII CR  -> end of line, without jump
 \n ASCII LF  -> next line (linux)
 \r\n EOL : CRLF  -> windows
-
 
 
 
@@ -319,7 +338,6 @@ OPTION can be: start, stop, reload, restart, force-reload
 
 
 /etc/rc.local : files run after all other init level scripts have run (e.g. mount, samba, etc.)
-
 
 
 
