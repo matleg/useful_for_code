@@ -482,7 +482,13 @@ ls /etc/*.conf | xargs -i cp {} /home/matleg/confs
 
 
 
-## 
+## create user and add it to sudo group
+	
+```bash
+sudo adduser mat
+sudo usermod -aG sudo mat
+	
+```
 
 
 
