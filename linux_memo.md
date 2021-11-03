@@ -2,7 +2,7 @@
 ## softwares
 
 ```bash
-sudo apt install arp-scan bash-completion bleachbit cryptsetup dnsutils elinks fdupes gedit git-all gparted hardinfo htop iotop luckybackup lsof make meld ncdu p7zip-full samba ssh vim vlc whois 
+sudo apt install arp-scan bash-completion bleachbit cryptsetup dnsutils elinks fdupes gedit git-all gparted hardinfo htop iotop luckybackup lsof make meld ncdu net-tools p7zip-full samba ssh vim vlc whois 
 ```
 
 ## samba
