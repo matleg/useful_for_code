@@ -1,24 +1,9 @@
 
 ## softwares
 
-arp-scan \
-bleachbit \
-cryptsetup \
-fdupes \
-gedit \
-git-all \
-gparted \
-hardinfo \
-htop \
-luckybackup \
-meld \
-ncdu \
-p7zip-full \
-samba \
-ssh \
-vim \
-vlc \
-whois 
+```bash
+sudo apt install arp-scan bash-completion bleachbit cryptsetup dnsutils elinks fdupes gedit git-all gparted hardinfo htop iotop luckybackup lsof make meld ncdu p7zip-full samba ssh vim vlc whois 
+```
 
 ## samba
 
