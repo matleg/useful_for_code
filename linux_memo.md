@@ -534,6 +534,7 @@ country=FR
 network={
         ssid="ssid"
         psk="password"
+        key_mgmt=WPA-PSK
 }
 
 
