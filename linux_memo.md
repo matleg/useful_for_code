@@ -7,7 +7,7 @@ sudo apt install arp-scan bash-completion bleachbit cryptsetup dnsutils elinks f
 
 ## samba
 
-```
+```bash
 [partages]
 comment = partages
 path = "/media/pi/cle57"
@@ -56,16 +56,19 @@ StartupNotify=false
 
 Start command is : 
 
-```
+```bash
 vncserver -geometry 1600x900 :1 (connexions on port 1)
 ```
 
 command to connect:
-```
+
+```bash
 "vncviewer <adresseipOuHost>:1 &"
 ```
+
 or
-```
+
+```bash
 "gvncviewer <adresseipOuHost>:1 &"
 #no username!!!
 ```
@@ -79,29 +82,30 @@ sudo apt purge tightvnc-java
 sudo apt install tightvnc-java
 ```
 
-also try :
+also try for auto start :
 
 ```
 sudo apt install x11vnc
 ```
-for auto start
-
-
 
 
 
 ## scan IP addresses on network
 
-install arp-scan
+```bash
+# install arp-scan
 sudo arp-scan -l (for  --localnet)
 
-or:
-nmap -T4 -sP 192.168.1.0-254 (T4: profile agressive, -sP: scan ports
-0-254: all addresses)
-
+# or:
+nmap -T4 -sP 192.168.1.0-254
+# T4: profile agressive
+# -sP: scan ports
+# 0-254: all addresses
+```
 
 ## configuration keyboard raspberry
-```
+
+```bash
 sudo dpkg-reconfigure keyboard-configuration
 
 sudo vim /etc/default/keyboard
@@ -135,7 +139,7 @@ sudo dd if=~/chemin/vers/le/fichier/de/backup.img of=/dev/mmcblk0  bs=512
 
 ## simple http server
 
-```
+```bash
 python -m SimpleHTTPServer 9988
 ```
 
@@ -161,7 +165,7 @@ cd /home/pi
 
 ## auto start gitlab CE server
 
-```
+```bash
 sudo systemctl enable gitlab-runsvdir.service
 sudo systemctl disable gitlab-runsvdir.service
 ```
@@ -321,15 +325,17 @@ possible to mount a disk at IP address?
 
 ## linux VS windows
 
-\r ASCII CR  -> end of line, without jump
-\n ASCII LF  -> next line (linux)
-\r\n EOL : CRLF  -> windows
+
+- \r ASCII CR  -> end of line, without jump  
+- \n ASCII LF  -> next line (linux)  
+- \r\n EOL : CRLF  -> windows  
 
 
 
 ## linux /etc/init.d VS /etc/rc.local
 
 use:
+```bash
 /etc/init.d/command OPTION
 
 OPTION can be: start, stop, reload, restart, force-reload
@@ -338,7 +344,7 @@ OPTION can be: start, stop, reload, restart, force-reload
 
 
 /etc/rc.local : files run after all other init level scripts have run (e.g. mount, samba, etc.)
-
+```
 
 
 
@@ -439,7 +445,7 @@ sed -irn 's/$my_variable(_toto)/$my_variable_\1/g' my_file
 
 Example:
 
-```
+```bash
 $ echo "123.456.78" |sed 's/\([0-9]*\)\.\([0-9]*\)\.\([0-9]*\)/\1/'
 123
 $ echo "123.456.78" |sed 's/\([0-9]*\)\.\([0-9]*\)\.\([0-9]*\)/\2/'
@@ -453,7 +459,7 @@ $ echo "123.456.78" |sed 's/\([0-9]*\)\.\([0-9]*\)\.\([0-9]*\)/\1 : \2 : \3/'
 
 ## regex capture date
 
-```
+```bash
 grep -E ",'[0-9]{4}-[0-9]{2}-[0-9]{2}'," my_file   # -E : extended regex
 
 grep -P ",'([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))'," my_file    # -P : Perl regex
@@ -495,15 +501,48 @@ sudo usermod -aG sudo mat
 
 
 
+## Backup SD card raspberry remotely
+(from https://www.it-react.com/index.php/2020/02/02/backup-your-raspberry-pi-remotely/ & https://www.thedigitalpictureframe.com/guide-back-up-sd-card-raspberry-pi-while-running/)
+
+```
+ssh mat@rasp "sudo dd if=/dev/mmcblk0 bs=1M status=progress | gzip -" | dd of=~/$(date +%Y%m%d\_%H%M%S)\_pi_backup.gz
+#  gzip - : With no FILE, or when FILE is -, read standard input.
+```
+
+Modify visudo tu run dd command :
+
+```bash
+sudo visudo
+
+# add this line
+
+ALL = NOPASSWD: /usr/bin/dd
+```
+
+    
+## restore SD card (not remotely of course)
+
+```bash
+gunzip -dc pi_backup.gz | sudo dd of=/dev/mmcblk0 bs=1M
+#  -c, --stdout      write on standard output, keep original files unchanged
+#  -d, --decompress  decompress
+
+``` 
+    
+    
+    
+
+##
+
 ## 
 
 ## 
-## 
-## 
 
 
 ## 
+
 ## 
+
 ## 
 
 ## 
