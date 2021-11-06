@@ -524,7 +524,7 @@ gunzip -dc pi_backup.gz | sudo dd of=/dev/mmcblk0 bs=1M
 ## Connect automatically rasp to wifi
 
 ```bash
-vi /etc/wpa_supplicant/wpa_supplicant.conf
+vi /boot/wpa_supplicant.conf
 
 # add
 ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
@@ -532,14 +532,14 @@ update_config=1
 country=FR
 
 network={
+        scan_ssid=1
         ssid="ssid"
         psk="password"
         key_mgmt=WPA-PSK
 }
-
-
-
 ```
+
+
 ## 
 
 ## 
