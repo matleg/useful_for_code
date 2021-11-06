@@ -336,12 +336,13 @@ possible to mount a disk at IP address?
 
 use:
 ```bash
-/etc/init.d/command OPTION
-
-OPTION can be: start, stop, reload, restart, force-reload
+/etc/init.d/command start
+/etc/init.d/command stop
+/etc/init.d/command reload
+/etc/init.d/command restart
+/etc/init.d/command force-reload
 
 /etc/rc#.d (# is a number for specific initialization level - from 0 to 6)
-
 
 /etc/rc.local : files run after all other init level scripts have run (e.g. mount, samba, etc.)
 ```
@@ -352,7 +353,9 @@ OPTION can be: start, stop, reload, restart, force-reload
 
 shorting pins 5 and 6 (GPIO3 and GND) together will wake the Pi up from a halt state
 
-        - create listen-for-shutdown.py:
+```bash
+create listen-for-shutdown.py:
+```
 
 ```python
 #!/usr/bin/env python
@@ -366,12 +369,10 @@ GPIO.wait_for_edge(3, GPIO.FALLING)
 
 subprocess.call(['shutdown', '-h', 'now'], shell=False)
 ```
-		- sudo mv listen-for-shutdown.py /usr/local/bin/
-		- sudo chmod +x /usr/local/bin/listen-for-shutdown.py
-
-		- create listen-for-shutdown.sh:
 
 ```bash
+vi listen-for-shutdown.sh:
+
 #! /bin/sh
 case "$1" in
   start)
@@ -386,14 +387,12 @@ case "$1" in
     ;;
 esac
 exit 0
-```
 
-```bash
 
+sudo chmod +x listen-for-shutdown.py
 sudo mv listen-for-shutdown.sh /etc/init.d/
 sudo chmod +x /etc/init.d/listen-for-shutdown.sh
 sudo update-rc.d listen-for-shutdown.sh defaults    
-#(register the script to run on boot with defaults runlevels)
 ```
 
 
@@ -402,12 +401,8 @@ sudo update-rc.d listen-for-shutdown.sh defaults
 
 ```bash
 chmod --reference=reference_file file
-
 chown --reference=reference_file file
 ```
-
-
-
 
 ## really delete data on disk
 (from Korben)
@@ -491,12 +486,12 @@ ls /etc/*.conf | xargs -i cp {} /home/matleg/confs
 
 
 
-## create user and add it to sudo group
+## Create user & add it to sudo group & delete old one
 	
 ```bash
 sudo adduser mat
-sudo usermod -aG sudo mat
-	
+sudo usermod -a -G adm,dialout,cdrom,sudo,audio,video,plugdev,games,users,input,netdev,gpio,i2c,spi mat
+sudo deluser -remove-home pi
 ```
 
 
@@ -515,7 +510,6 @@ Modify visudo tu run dd command :
 sudo visudo
 
 # add this line
-
 ALL = NOPASSWD: /usr/bin/dd
 ```
 
@@ -526,7 +520,6 @@ ALL = NOPASSWD: /usr/bin/dd
 gunzip -dc pi_backup.gz | sudo dd of=/dev/mmcblk0 bs=1M
 #  -c, --stdout      write on standard output, keep original files unchanged
 #  -d, --decompress  decompress
-
 ``` 
     
 ## Connect automatically rasp to wifi
