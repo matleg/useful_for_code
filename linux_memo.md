@@ -520,7 +520,7 @@ ALL = NOPASSWD: /usr/bin/dd
 ```
 
     
-## restore SD card (not remotely of course)
+## Restore SD card (not remotely of course)
 
 ```bash
 gunzip -dc pi_backup.gz | sudo dd of=/dev/mmcblk0 bs=1M
@@ -529,11 +529,24 @@ gunzip -dc pi_backup.gz | sudo dd of=/dev/mmcblk0 bs=1M
 
 ``` 
     
-    
-    
+## Connect automatically rasp to wifi
 
-##
+```bash
+vi /etc/wpa_supplicant/wpa_supplicant.conf
 
+# add
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+country=FR
+
+network={
+        ssid="ssid"
+        psk="password"
+}
+
+
+
+```
 ## 
 
 ## 
