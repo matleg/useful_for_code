@@ -1,13 +1,13 @@
 
 ## softwares
 
-```bash
+```sh
 sudo apt install arp-scan bash-completion bleachbit cryptsetup dnsutils elinks fdupes gedit git-all gparted hardinfo htop iotop luckybackup lsof make meld ncdu net-tools p7zip-full samba ssh vim vlc whois 
 ```
 
 ## samba
 
-```bash
+```sh
 [partages]
 comment = partages
 path = "/media/pi/cle57"
@@ -391,7 +391,6 @@ exit 0
 
 sudo chmod +x listen-for-shutdown.py
 sudo mv listen-for-shutdown.sh /etc/init.d/
-sudo chmod +x /etc/init.d/listen-for-shutdown.sh
 sudo update-rc.d listen-for-shutdown.sh defaults    
 ```
 
