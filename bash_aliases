@@ -32,6 +32,13 @@ alias maj='agu; agup; acl; agar'
 function mkcd() { mkdir "$@" && cd "$@"; }
 function n { pluma $* & }
 function na { nano $* & }
+function noiptables() {
+    sudo iptables -F
+    sudo iptables -X
+    sudo iptables -P INPUT ACCEPT
+    sudo iptables -P OUTPUT ACCEPT
+    sudo iptables -P FORWARD ACCEPT 
+}
 
 alias nano='vim'
 alias p='pwd'
