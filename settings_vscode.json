@@ -1,6 +1,10 @@
 {
-  // general
-  "editor.rulers": [120],
+  // general        
+  "telemetry.enableTelemetry": false,
+  "telemetry.telemetryLevel": "Off",
+  "editor.rulers": [
+    120
+  ],
   "terminal.external.linuxExec": "/bin/bash",
   "terminal.integrated.shell.linux": "/bin/bash",
   "explorer.confirmDelete": false,
@@ -16,24 +20,28 @@
     "**/.factorypath": true
   },
   "files.associations": {
-    "*.json": "jsonc" // to be able to comment json files and not use "_comment":
+    "*.json": "jsonc", // to be able to comment json files and not use "_comment":
   },
-
+  "debug.onTaskErrors": "debugAnyway",
+  "explorer.confirmDragAndDrop": false,
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   // python
-  "python.jediEnabled": false,
-  "python.formatting.yapfArgs": ["--style={ based_on_style: pep8, column_limit: 120 }"],
+  "python.formatting.yapfArgs": [
+    "--style={ based_on_style: pep8, column_limit: 120 }"
+  ],
   "[jupyter]": {},
   "python.formatting.provider": "yapf",
+  // C++
   "C_Cpp.updateChannel": "Insiders",
-  "java.errors.incompleteClasspath.severity": "ignore",
   "C_Cpp.clang_format_style": "Visual Studio",
   "[cpp]": {
-    "editor.defaultFormatter": "ms-vscode.cpptools"
+    "editor.defaultFormatter": "ms-vscode.cpptools",
+    "editor.wordWrapColumn": 120
   },
-
   // php
   "php.validate.executablePath": "/opt/lampp/bin/php",
-
   // code-runner
   "code-runner.runInTerminal": true,
   "code-runner.enableAppInsights": false,
@@ -83,5 +91,12 @@
     "lisp": "sbcl --script",
     "kit": "kitc --run",
     "v": "v run"
-  }
+  },
+  // json
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
 }
