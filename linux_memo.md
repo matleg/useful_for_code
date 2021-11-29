@@ -541,7 +541,7 @@ network={
 
 
 
-## list open ports
+## List open ports
 
 ```bash
 sudo netstat -ltup
@@ -554,7 +554,7 @@ sudo lsof -i:22 ## see a specific port such as 22 ##
 ```
 
 
-## get all pages, files of website
+## Get all pages & files of website
 
 ```bash
 wget -r -l0 my_website
@@ -564,7 +564,37 @@ wget -r -l0 my_website
 
 ```
 
+## fail2ban - yunohost
 
+```bash
+service fail2ban restart
+watch fail2ban-client status yunohost
+watch fail2ban-client status sshd
+fail2ban-client status
+tail -f /var/log/nginx/website-access.log
+tail -f /var/log/nginx/access.log
+vi /etc/fail2ban/jail.d/defaults-debian.conf 
+vi /etc/fail2ban/jail.d/yunohost-jails.conf
+```
+
+[yunohost]
+enabled  = true
+port     = http,https
+protocol = tcp
+filter   = yunohost
+logpath  = /var/log/nginx/*error.log
+           /var/log/nginx/*access.log
+maxretry = 3
+bantime = 3600
+findtime = 300
+
+```bash
+# unban ip
+fail2ban-client set yunohost unbanip 192.168.1.254
+
+# follow logs
+tail -f /var/log/fail2ban.log
+```
 
 ## 
 
