@@ -1,7 +1,7 @@
 {
     // general        
     "telemetry.enableTelemetry": false,
-    "telemetry.telemetryLevel": "Off",
+    "telemetry.telemetryLevel": "off",
     "editor.rulers": [
         120
     ],
@@ -27,6 +27,8 @@
     "[markdown]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
+    "markdown-preview-enhanced.codeBlockTheme": "darcula.css",
+    "markdown-preview-enhanced.previewTheme": "github-dark.css",
     // python
     "python.formatting.yapfArgs": [
         "--style={ based_on_style: pep8, column_limit: 120 }"
