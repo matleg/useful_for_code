@@ -540,6 +540,32 @@ network={
 ```
 
 
+
+## list open ports
+
+```bash
+sudo netstat -ltup
+sudo netstat -tulpn | grep LISTEN
+sudo lsof -i -P -n | grep LISTEN
+sudo ss -tulpn | grep LISTEN
+sudo nmap -sTU -O localhost
+
+sudo lsof -i:22 ## see a specific port such as 22 ##
+```
+
+
+## get all pages, files of website
+
+```bash
+wget -r -l0 my_website
+
+# -r : recursion
+# -l0 : infinite recursion depth
+
+```
+
+
+
 ## 
 
 ## 
