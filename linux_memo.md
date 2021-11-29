@@ -588,7 +588,7 @@ logpath  = /var/log/nginx/*error.log
 maxretry = 3
 bantime = 3600
 findtime = 300
-```sh
+```
 
 
 ```bash
