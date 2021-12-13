@@ -55,7 +55,7 @@
         "c": "cd $dir && gcc $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
         "cpp": "cd $dir && g++ $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
         "php": "/opt/lampp/bin/php",
-        "python": "python3.8 -u",
+        "python": "cd $dir && python3.8 -u $fileName",
         "go": "go run",
         "shellscript": "bash",
         "typescript": "ts-node",
