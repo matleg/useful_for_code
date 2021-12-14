@@ -462,7 +462,18 @@ grep -P ",'([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))'," my_file    # -P 
 sed -ri "s/'((0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/[12][0-9]{3} [012][0-9]:[0-5][0-9]:[0-5][0-9])'/to_timestamp\('\1','DD\/MM\/YYYY HH24:MI:SS'\)/g" my_file
 ```
 
+## regex greedy pattern
 
+
+```bash
+# from https://stackoverflow.com/questions/3075130/what-is-the-difference-between-and-regular-expressions
+
+eeeAiiZuuuuAoooZeeee
+
+A.*Z yields 1 match: AiiZuuuuAoooZ (see on rubular.com)
+A.*?Z yields 2 matches: AiiZ and AoooZ 
+
+```
 
 ## xargs command examples
 
