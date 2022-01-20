@@ -1,0 +1,27 @@
+// Place your key bindings in this file to override the defaultsauto[]
+[
+    {
+        "key": "ctrl+d",
+        "command": "compareSelected"
+    },
+    {
+        "key": "ctrl+1",
+        "command": "editor.action.commentLine",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+shift+[Period]",
+        "command": "-editor.action.commentLine",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    // Toggle between terminal and editor focus
+    {
+        "key": "ctrl+shift+'",
+        "command": "workbench.action.terminal.focus"
+    },
+    {
+        "key": "ctrl+shift+'",
+        "command": "workbench.action.focusActiveEditorGroup",
+        "when": "terminalFocus"
+    },
+]
