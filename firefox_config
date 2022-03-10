@@ -28,3 +28,6 @@ false
 
 browser.sessionstore.interval
 120000 reduce disk access  
+
+browser.tabs.loadDivertedInBackground
+do not switch to browser when link clicked in another window (e.g. tb)
