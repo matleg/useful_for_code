@@ -13,6 +13,29 @@ alias cp='cp -r'
 alias dir='dir --color=auto'
 alias duu='du -sch .[!.]* * | sort -h'
 alias e='exit'
+
+function extract()      
+{
+    if [ -f $1 ] ; then
+        case $1 in
+            *.tar.bz2)   tar xvjf $1     ;;
+            *.tar.gz)    tar xvzf $1     ;;
+            *.bz2)       bunzip2 $1      ;;
+            *.rar)       unrar x $1      ;;
+            *.gz)        gunzip $1       ;;
+            *.tar)       tar xvf $1      ;;
+            *.tbz2)      tar xvjf $1     ;;
+            *.tgz)       tar xvzf $1     ;;
+            *.zip)       unzip $1        ;;
+            *.Z)         uncompress $1   ;;
+            *.7z)        7z x $1         ;;
+            *)           echo "'$1' cannot be extracted via >extract<" ;;
+        esac
+    else
+        echo "'$1' is not a valid file!"
+    fi
+}
+
 alias ff='find . -name'
 alias ffg='find . | grep'
 
@@ -29,8 +52,12 @@ alias lsd='l -d */'
 alias lsp='l *.py'
 alias maj='agu; agup; acl; agar'
 
+# Create a tar.gz archive from given directory.
+function maketar() { tar cvzf "${1%%/}.tar.gz"  "${1%%/}/"; }
+# Create a ZIP archive of a file or folder.
+function makezip() { zip -r "${1%%/}.zip" "$1" ; }
 function mkcd() { mkdir "$@" && cd "$@"; }
-function n { pluma $* & }
+function n { gedit $* & }
 function na { nano $* & }
 function noiptables() {
     sudo iptables -F
