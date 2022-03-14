@@ -210,11 +210,11 @@ source and . are synonymous in Bash.
 
 ## rsync slashes memo
 
-rsync source destination/                          !=        rsync source/ destination/ 
-(creation of source in destination)                !=       (copy of content from source into destination)
+rsync source destination/                          !=        rsync source/ destination/  
+(creation of source in destination)                !=       (copy of content from source into destination)  
   
-rsync source destination/     =       rsync source/ destination/source/
-rsync source destination/     =       rsync source destination    (slash in destination has no influence)
+rsync source destination/     =       rsync source/ destination/source/  
+rsync source destination/     =       rsync source destination    (slash in destination has no influence)  
  
 
 
