@@ -25,7 +25,11 @@ watch -n -d 0.5 nvidia-smi
 
 
 
-##
+## Overheating ?
+
+```bash
+sudo systemctl restart nvidia-powerd.service
+```
 
 
 ##
