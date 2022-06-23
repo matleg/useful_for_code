@@ -610,7 +610,18 @@ fail2ban-client set yunohost unbanip 192.168.1.254
 tail -f /var/log/fail2ban.log
 ```
 
-## 
+## list files in dir -> to html 
+from:
+https://stackoverflow.com/questions/3785055/how-can-i-create-a-simple-index-html-file-which-lists-all-files-directories
+
+```sh
+# Generate an HTML directory index one level deep:
+tree -H '.' -L 1 --noreport --charset utf-8 -o index.html
+
+# Only include specific file types that match a glob pattern, e.g. *.zip files:
+tree -H '.' -L 1 --noreport --charset utf-8 -P "*.zip" -o index.html
+
+```
 
 ## 
 
