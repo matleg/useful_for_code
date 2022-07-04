@@ -38,6 +38,7 @@ function extract() {
 
 alias ff='find . -name'
 alias ffg='find . | grep'
+alias ffgi='find . | grep -i '
 
 function g { gedit $* & }
 
