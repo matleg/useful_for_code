@@ -30,11 +30,12 @@
     "markdown-preview-enhanced.codeBlockTheme": "darcula.css",
     "markdown-preview-enhanced.previewTheme": "github-dark.css",
     // python
+    "editor.formatOnSave": true,
+    "python.formatting.provider": "yapf",
     "python.formatting.yapfArgs": [
         "--style={ based_on_style: pep8, column_limit: 120 }"
     ],
     "[jupyter]": {},
-    "python.formatting.provider": "yapf",
     // C++
     "C_Cpp.updateChannel": "Insiders",
     "C_Cpp.clang_format_style": "Visual Studio",
@@ -46,16 +47,16 @@
     "php.validate.executablePath": "/opt/lampp/bin/php",
     // code-runner
     "code-runner.runInTerminal": true,
+    "code-runner.saveFileBeforeRun": true,
     "code-runner.enableAppInsights": false,
     "code-runner.respectShebang": false,
-    "code-runner.saveFileBeforeRun": true,
     "code-runner.executorMap": {
         "javascript": "node",
         "java": "cd $dir && javac $fileName && java $fileNameWithoutExt",
         "c": "cd $dir && gcc $fileName -o a.out && ./a.out",
         "cpp": "cd $dir && g++ $fileName -o a.out && ./a.out",
         "php": "/opt/lampp/bin/php",
-        "python": "cd $dir && python3.8 -u $fileName",
+        "python": "cd $dir && python -u $fileName",
         "go": "go run",
         "shellscript": "bash",
         "typescript": "ts-node",
