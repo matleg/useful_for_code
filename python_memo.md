@@ -1,22 +1,4 @@
-
-##  modules to install 
-
-```bash
-python3 -m pip install
-autopep8 \
-black\ 
-jupyter\ 
-matplotlib\ 
-numpy\ 
-pandas\ 
-pylint\ 
-scikit-learn\ 
-scipy\ 
-seaborn\ 
-yapf
-```
-
-
+# PYMEMO
 
 ##  for...else syntax 
 
@@ -70,26 +52,6 @@ foo_vars = {id(instance):instance.foo for instance in A.instances}
 
 
 
-
-##  imports 
-
-"clean" import
-1 - create a wrapper module separated from the code:
-```python
-import sys
-import os
-sys.path.insert(0, os.path.join(...,lib))
-import mylib
-del sys.path[0]
-```
-
-2 -
-```python
-from lib import mylib
-```
-
-
-
 ##  force reinstall 
 
 reinstall package when it really does not work!
@@ -98,13 +60,6 @@ pip install --user --force-reinstall --ignore-installed --no-binary :all: packag
 ```
 
 
-
-
-##  concepts 
-
-LBYL: look before you leap : if key in dic ....
-
-EAFP : easier to ask for forgiveness than permission : try: .... except: ....
 
 
 
