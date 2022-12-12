@@ -1,17 +1,16 @@
 {
     // general        
-    "telemetry.enableTelemetry": false,
     "telemetry.telemetryLevel": "off",
     "editor.rulers": [
         120
     ],
-    "terminal.external.linuxExec": "/bin/bash",
-    "terminal.integrated.shell.linux": "/bin/bash",
+    "editor.formatOnSave": true,
+    "editor.suggestSelection": "first",
     "explorer.confirmDelete": false,
+    "terminal.external.linuxExec": "/bin/bash",
     "workbench.iconTheme": "vscode-icons",
     "window.openFoldersInNewWindow": "on",
     "diffEditor.renderSideBySide": true,
-    "editor.suggestSelection": "first",
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "files.exclude": {
         "**/.classpath": true,
@@ -30,7 +29,6 @@
     "markdown-preview-enhanced.codeBlockTheme": "darcula.css",
     "markdown-preview-enhanced.previewTheme": "github-dark.css",
     // python
-    "editor.formatOnSave": true,
     "python.formatting.provider": "yapf",
     "python.formatting.yapfArgs": [
         "--style={ based_on_style: pep8, column_limit: 120 }"
