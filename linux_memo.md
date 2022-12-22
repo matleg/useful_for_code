@@ -412,6 +412,18 @@ for n in `seq 7`; do dd if=/dev/urandom of=/dev/diskN ; done
 ```
 
 
+## regex to find a string _without_ a substring in it
+
+```sh
+^mynameistata((?!toto).)*$
+
+# matches:
+# mynameistatatititutu
+# but not:
+# mynameistatatitototu
+```
+
+
 ## regex capture group
 
 
