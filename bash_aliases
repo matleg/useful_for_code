@@ -9,6 +9,11 @@ alias audio-laptop='pacmd set-card-profile 0 output:analog-stereo+input:analog-s
 alias c='clear'
 alias cd..='cd ..'
 alias cd-='cd -'
+
+function checkswap() {
+    for file in /proc/*/status ; do awk '/VmSwap|Name/{printf $2 " " $3}END{ print ""}' $file; done | sort -k 2 -n -r | less
+}
+
 alias countfiles='find . -type f | wc -l'
 alias cp='cp -r'
 alias dir='dir --color=auto'
