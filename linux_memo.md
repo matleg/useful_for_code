@@ -635,7 +635,93 @@ tree -H '.' -L 1 --noreport --charset utf-8 -P "*.zip" -o index.html
 
 ```
 
-## 
+## Grafana linky
+
+Link: https://wiki.abyssproject.net/fr/debian/linky/monitoring-linky-grafana
+
+Useful commands and conf files:
+
+```sh
+
+apt install openntpd influxdb netdata grafana-server
+
+vim /usr/lib/netdata/conf.d/exporting.conf
+"
+[exporting:global]
+    enabled = yes
+    ...
+...
+# An example configuration for graphite, json, opentsdb exporting connectors
+[opentsdb:example.com]
+    enabled = yes
+    destination = localhost
+"
+
+picocom -b 1200 -d 7 -f n /dev/ttyUSB0 
+
+systemctl restart openntpd influxdb netdata grafana-server
+
+root@matleg:~# influx
+Connected to http://localhost:8086 version 1.8.10
+InfluxDB shell version: 1.8.10
+> show databases
+> use teleinfo
+Using database teleinfo
+> SHOW SERIES
+
+
+# to delete:
+> DROP SERIES FROM /.*/
+``` 
+
+```python
+
+def main():  # picocom -b 1200 -d 7 -p e -f n /dev/ttyUSB0 
+    with serial.Serial(port='/dev/ttyUSB0', baudrate=1200, parity=serial.PARITY_EVEN, stopbits=serial.STOPBITS_ONE,
+                       bytesize=serial.SEVENBITS, timeout=1) as ser:S
+        logging.info("Teleinfo is reading on /dev/ttyUSB0..")
+```
+
+
+Daemon:
+
+```bash
+vim /etc/systemd/system/teleinfo.service
+
+"
+[Unit]
+Description = Run teleinfo python script
+After = network.target
+
+[Service]
+Type = simple
+ExecStart = /root/run_teleinfo.sh
+User = root
+Group = root
+Restart = on-failure
+SyslogIdentifier = teleinfo
+RestartSec = 5
+TimeoutStartSec = infinity
+
+[Install]
+WantedBy = multi-user.target
+"
+
+vim /root/run_teleinfo.sh 
+
+"
+#!/usr/bin/env bash
+
+source /root/teleinfo-linky-with-raspberry/venv/bin/activate
+python /root/teleinfo-linky-with-raspberry/teleinfo.py >> /root/teleinfo.log
+"
+
+
+
+
+``` 
+
+
 
 
 ## 
