@@ -13,10 +13,20 @@
     "diffEditor.renderSideBySide": true,
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "files.exclude": {
+        "**/__pycache__": true,
         "**/.classpath": true,
-        "**/.project": true,
-        "**/.settings": true,
-        "**/.factorypath": true
+        "**/.factorypath": true,
+        "**/.git": false,
+        "**/.project": false,
+        "**/.pytest_cache": true,
+        "**/.settings": false,
+    },
+    "terminal.integrated.env.linux": {
+        "PYTHONPATH": "${env:PYTHONPATH}:${workspaceFolder}/src:${workspaceFolder}/tests"
+    },
+    "python.envFile": "${workspaceFolder}/.env", // default 
+    "search.exclude": {
+        "**/venv": true
     },
     "files.associations": {
         "*.json": "jsonc", // to be able to comment json files and not use "_comment":
@@ -67,4 +77,6 @@
     "[json]": {
         "editor.defaultFormatter": "vscode.json-language-features"
     },
+    // rust
+    "rust-analyzer.inlayHints.typeHints.enable": false,
 }
