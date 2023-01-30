@@ -1,6 +1,6 @@
 # PYMEMO
 
-##  for...else syntax 
+## for...else syntax
 
 ```python
 for i in foo:
@@ -9,34 +9,29 @@ for i in foo:
 else:
     print("i was never 0")
 ```
- 
- 
 
-##  underscores 
+## underscores
 
-__double_leading_underscore : __foo replaced by the interpreter by  _classname__foo so that it does not overlap
+**double_leading_underscore : **foo replaced by the interpreter by \_classname\_\_foo so that it does not overlap
 
-_single_leading_underscore : _internal_name : private variable : ignored in "from xxx import *",
-unless specified in __all__ , can be accessed directly inside a class (no name replacement) however
+\_single_leading_underscore : \_internal_name : private variable : ignored in "from xxx import \*",
+unless specified in **all** , can be accessed directly inside a class (no name replacement) however
 IDEs will issue warning
 
-single_trailing_underscore_ : avoid conflicts with keywords and build_exe_options
+single*trailing_underscore* : avoid conflicts with keywords and build_exe_options
 
-
-
-##  multiple inheritance 
+## multiple inheritance
 
 multiple inheritance : copy of the first method found
-class C(B,A): __init__ from B is copied, not from A.
+class C(B,A): **init** from B is copied, not from A.
 super() returns the 1st method of the first parent (or grandparent) found
 
-
-
-##  instances 
+## instances
 
 instance.value : looked for in : 1-instance, 2-subclass, 3-superclass, 4-object
 
 keep track of instances:
+
 ```python
 class A:
     instances = []
@@ -46,77 +41,63 @@ class A:
 ```
 
 At the end of the program :
+
 ```python
 foo_vars = {id(instance):instance.foo for instance in A.instances}
 ```
 
-
-
-##  force reinstall 
+## force reinstall
 
 reinstall package when it really does not work!
+
 ```bash
 pip install --user --force-reinstall --ignore-installed --no-binary :all: package name
 ```
 
-
-
-
-
-
-## imports / packages 
+## imports / packages
 
 ```python
 import mod
 mod.__file__
 > 'C:\\users\\mat\\mod.py'
 ```
-python >=3.3 : __init__.py not necessary to make a package
 
+python >=3.3 : **init**.py not necessary to make a package
 
-
-
-##  pytest 
+## pytest
 
 pytest: assert an error is raised:
+
 ```python
 with pytest.raises(ValueError):
     fibonacci(-1)
 ```
 
-
-
-
-    
-##  mutual imports 
+## mutual imports
 
 Mutual top-level imports: from SO
 
-If you do import foo inside bar and import bar inside foo, it will work fine. 
+If you do import foo inside bar and import bar inside foo, it will work fine.
 By the time anything actually runs, both modules will be fully loaded and will have references to each other.
 
-The problem is when instead you do from foo import abc and from bar import xyz. 
-Because now each module requires the other module to already be imported 
+The problem is when instead you do from foo import abc and from bar import xyz.
+Because now each module requires the other module to already be imported
 (so that the name we are importing exists) before it can be imported.
 
+## sequence
 
+Why is “1000000000000000 in range(1000000000000001)” so fast in Python 3? from SO
 
-
-
-##  sequence 
-
-Why is “1000000000000000 in range(1000000000000001)” so fast in Python 3?  from SO
-
-The Python 3 range() object doesn't produce numbers immediately; 
+The Python 3 range() object doesn't produce numbers immediately;
 it is a smart sequence object that produces numbers on demand.
-The object also implements the object.__contains__ hook, and calculates if your number is part of its range. 
+The object also implements the object.**contains** hook, and calculates if your number is part of its range.
 
 For example, 994 is in range(4, 1000, 2) because:
-    4 <= 994 < 1000, and
-    (994 - 4) % 2 == 0.
-
+4 <= 994 < 1000, and
+(994 - 4) % 2 == 0.
 
 range is not a generator:
+
 ```python
 >>> a = range(5)
 >>> print(list(a))
@@ -129,8 +110,6 @@ range actually is a sequence, just like a list:
 >>> isinstance(a, collections.abc.Sequence)
 True
 ```
-
-
 
 ## default values parameters & mutable arguments
 
@@ -157,7 +136,7 @@ For class variables:
 ```python
 class A:
     v = ['c', 'p']
- 
+
 >>> g1 = A()
 >>> g2 = A()
 >>> g1.v.pop()
@@ -165,7 +144,6 @@ class A:
 >>> g2.v
 ['c']
 ```
-
 
 ```python
 def foo(x=[]):
@@ -194,11 +172,7 @@ Instead, you should use a sentinel value denoting "not given" and replace with t
 [1]
 ```
 
-
-
-
-
-##  build with cx_Freeze 
+## build with cx_Freeze
 
 windows command : "python setup.py build"
 
@@ -229,33 +203,26 @@ setup(name="esiam_server",
       executables=[Executable("esiam_server.py", base=base)])
 ```
 
-
-
-
-
-
-
-
-##  pip trick 
+## pip trick
 
 Use pip (version 6 or later) with the -t <directory> flag to
 copy the libraries into the folder you created in the previous step. For example:
+
 ```
 pip install -t lib/ <library_name>
 
 from https://pip.pypa.io/en/stable/reference/pip_install/:
 -t, --target <dir>
 
-Install packages into <dir>. 
-By default this will not replace existing files/folders in <dir>. 
+Install packages into <dir>.
+By default this will not replace existing files/folders in <dir>.
 Use –upgrade to replace existing packages in <dir> with new versions.
 ```
 
-
-
-##  subprocess popen VS call 
+## subprocess popen VS call
 
 from SO:
+
 ```python
 returncode = call(*args, **kwargs)
 ```
@@ -283,28 +250,23 @@ def call(*popenargs, timeout=None, **kwargs):
             p.wait()
             raise
 ```
+
 it's a thin wrapper around Popen.
 
+## bitwise operations
 
+bin = 00000100000  
+~bin = 11111011111
 
-##  bitwise operations 
-
-
-bin         = 00000100000  
-~bin        = 11111011111  
-
-nb          = 00011111100  
-nb &~ bin   = 00011011100  
+nb = 00011111100  
+nb &~ bin = 00011011100
 
 ~x = -x-1  
-x    = 0000100110  
--x   = 1111011000  --> NOT ...001!  
--x-1 = 1111011001 = ~x  
+x = 0000100110  
+-x = 1111011000 --> NOT ...001!  
+-x-1 = 1111011001 = ~x
 
-
-
-
-##  python composition 
+## python composition
 
 from http://blog.thedigitalcatonline.com/blog/2014/08/20/python-3-oop-part-3-delegation-composition-and-inheritance/
 
@@ -336,7 +298,7 @@ class B:
 
 ```
 
-##  sort dict by value 
+## sort dict by value
 
 from realpython:
 
@@ -347,8 +309,7 @@ dx = {'a': 4, 'b': 3, 'c': 2, 'd': 1}
 [('d', 1), ('c', 2), ('b', 3), ('a', 4)]
 ```
 
-
-##  namedtuple 
+## namedtuple
 
 from realpython:
 
@@ -370,21 +331,17 @@ Car(color='red' , mileage=3812.4)
 AttributeError: "can't set attribute"
 ```
 
+## site.py
 
-##  site.py 
-
-automatically started when running python executable: python -m site 
+automatically started when running python executable: python -m site
 (site is imported from pythonpath and executed)
 
+##
 
+##
 
+##
 
+##
 
-##   
-##   
-##   
-##   
-##   
-
-
-
+##

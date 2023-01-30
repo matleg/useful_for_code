@@ -1,8 +1,7 @@
-
 ## softwares
 
 ```sh
-sudo apt install arp-scan bash-completion bleachbit cryptsetup dnsutils elinks fdupes gedit git-all gparted hardinfo htop iotop luckybackup lsof make meld ncdu net-tools p7zip-full samba ssh vim vlc whois 
+sudo apt install arp-scan bash-completion bleachbit cryptsetup dnsutils elinks fdupes gedit git-all gparted hardinfo htop iotop luckybackup lsof make meld ncdu net-tools p7zip-full samba ssh vim vlc whois
 ```
 
 ## samba
@@ -23,11 +22,9 @@ sudo /etc/init.d/samba stop
 
 ```
 
-
-
 ## linux
 
-Public directory (c)  in private directory (b)
+Public directory (c) in private directory (b)
 
 ```sh
 mkdir a/b/c
@@ -36,10 +33,7 @@ sudo chown root a/b
 touch a/b/c/this.txt
 ```
 
-
-
 ## auto start vncserver
-
 
 install tightvncserver on server (e.g. raspberry) and gvncviewer on client
 
@@ -54,7 +48,7 @@ Exec=vncserver :1
 StartupNotify=false
 ```
 
-Start command is : 
+Start command is :
 
 ```bash
 vncserver -geometry 1600x900 :1 (connexions on port 1)
@@ -73,7 +67,7 @@ or
 #no username!!!
 ```
 
-if does not work: 
+if does not work:
 
 ```bash
 sudo apt purge tightvncserver
@@ -87,8 +81,6 @@ also try for auto start :
 ```
 sudo apt install x11vnc
 ```
-
-
 
 ## scan IP addresses on network
 
@@ -113,15 +105,16 @@ XKBLAYOUT=gb
 XKBLAYOUT=fr
 ```
 
-
 ## dd
 
 to find SD card
+
 ```bash
 sudo fdisk -l
 ```
 
 to create SD card
+
 ```bash
 sudo dd bs=4M if=2017-11-29-raspbian-stretch.img of=/dev/mmcblk0p status=progress conv=fsync
 ```
@@ -129,13 +122,13 @@ sudo dd bs=4M if=2017-11-29-raspbian-stretch.img of=/dev/mmcblk0p status=progres
 (if: input file, of:output file, bs: block size)
 
 to restore
+
 ```bash
 sudo dd if=~/chemin/vers/le/fichier/de/backup.img of=/dev/mmcblk0  bs=512
 
 # bits zeros: if=/dev/zero
 # random: if=/dev/urandom
 ```
-
 
 ## simple http server
 
@@ -144,9 +137,6 @@ python -m SimpleHTTPServer 9988
 ```
 
 http://adresseip:9988/
-
-
-
 
 ## simple git server
 
@@ -162,7 +152,6 @@ git instaweb --httpd=webrick
 cd /home/pi
 ```
 
-
 ## auto start gitlab CE server
 
 ```bash
@@ -172,7 +161,7 @@ sudo systemctl disable gitlab-runsvdir.service
 
 ## wifi auto reconnection raspberry
 
-script to execute in  /etc/rc.local (at each start)
+script to execute in /etc/rc.local (at each start)
 
 ```bash
 #!/bin/bash
@@ -189,10 +178,6 @@ done
 
 (for example : /home/pi/network_monitor.sh & )
 
-
-
-
-
 ## bash source
 
 ./script
@@ -205,20 +190,13 @@ source script
 -> sources the script
 source and . are synonymous in Bash.
 
-
-
-
 ## rsync slashes memo
 
-rsync source destination/                          !=        rsync source/ destination/  
-(creation of source in destination)                !=       (copy of content from source into destination)  
-  
-rsync source destination/     =       rsync source/ destination/source/  
-rsync source destination/     =       rsync source destination    (slash in destination has no influence)  
- 
+rsync source destination/ != rsync source/ destination/  
+(creation of source in destination) != (copy of content from source into destination)
 
-
-
+rsync source destination/ = rsync source/ destination/source/  
+rsync source destination/ = rsync source destination (slash in destination has no influence)
 
 ## umask memo
 
@@ -228,17 +206,14 @@ umask 027
 Paranoid: neither group nor others have any perms:
 umask 077
 
-
-
-
 ## rsync options
 
 -a (not used), equivalent to: -rlptgoD (no -H,-A,-X : hard links, ACLs (implies -p), extended attributes)
 preserves permissions (owners, groups), times, symbolic links, and devices
 
--l, --links                 copy symlinks as symlinks
+-l, --links copy symlinks as symlinks
 
--L, --copy-links            transform symlink into referent file/dir
+-L, --copy-links transform symlink into referent file/dir
 
 -p -o -g permissions, owner, group
 
@@ -246,72 +221,56 @@ preserves permissions (owners, groups), times, symbolic links, and devices
 
 -t preserve modification times
 
-
-
-
 ## info about a command
 
 bash: type
 csh : which
 
-type cat  -> /bin/cat
-type echo  -> builtin shell
-
-
+type cat -> /bin/cat
+type echo -> builtin shell
 
 ## commands execution
 
-c1 ; c2  -> c1 then c2
+c1 ; c2 -> c1 then c2
 
-c1 && c2  -> c2 if no error in c1
+c1 && c2 -> c2 if no error in c1
 
-c1 || c2  -> c2 if error in c1
-
+c1 || c2 -> c2 if error in c1
 
 start command at time & date :
 
-at 13:14 9/23/18 command         ctrl+D
-
+at 13:14 9/23/18 command ctrl+D
 
 list jobs:
 
 atq
 
-
-
 ## sticky bit - SUID/GUID
-
 
 sticky bit:
 
-chmod 1777 directory    or    chmod o+t directory
+chmod 1777 directory or chmod o+t directory
 
 1: allow users to delete only files they own
-
 
 SUID/GUID:
 
 rights allowing to execute a command with command's rights and not with user's rights. the command is usually
 a system tool:
 
-/usr/bin/passwd : _rwsr_xr_x  -> bob can take roots' rights to execute the command
+/usr/bin/passwd : \_rwsr_xr_x -> bob can take roots' rights to execute the command
 
-chmod 4777 command   or   chmod u+s command
+chmod 4777 command or chmod u+s command
 
-chmod 2777 command   or   chmod g+s command
-
-
-
-
+chmod 2777 command or chmod g+s command
 
 ## various linux shell sys admin
 
-
-? replaces 1 character  -> ls guide_unix.??x
+? replaces 1 character -> ls guide_unix.??x
 
 inode : unique file number on the partition
 
-simple quote ' ' : avoids characters expansion:  '$USER' -> $USER
+simple quote ' ' : avoids characters expansion: '$USER' -> $USER
 
 double quote " " : allows $ to keep its meaning "$USER" -> mat
 
@@ -321,20 +280,16 @@ possible to mount a disk at IP address?
 
 /ipadresstodisk/.........
 
-
-
 ## linux VS windows
 
-
-- \r ASCII CR  -> end of line, without jump  
-- \n ASCII LF  -> next line (linux)  
-- \r\n EOL : CRLF  -> windows  
-
-
+- \r ASCII CR -> end of line, without jump
+- \n ASCII LF -> next line (linux)
+- \r\n EOL : CRLF -> windows
 
 ## linux /etc/init.d VS /etc/rc.local
 
 use:
+
 ```bash
 /etc/init.d/command start
 /etc/init.d/command stop
@@ -346,8 +301,6 @@ use:
 
 /etc/rc.local : files run after all other init level scripts have run (e.g. mount, samba, etc.)
 ```
-
-
 
 ## power button raspberry
 
@@ -391,11 +344,9 @@ exit 0
 
 sudo chmod +x listen-for-shutdown.py
 sudo mv listen-for-shutdown.sh /etc/init.d/
-sudo update-rc.d listen-for-shutdown.sh defaults    
+sudo update-rc.d listen-for-shutdown.sh defaults
 ```
 
-
-		
 ## Copy File Permissions to Another File
 
 ```bash
@@ -404,13 +355,13 @@ chown --reference=reference_file file
 ```
 
 ## really delete data on disk
+
 (from Korben)
 
 ```bash
 #!/bin/bash
 for n in `seq 7`; do dd if=/dev/urandom of=/dev/diskN ; done
 ```
-
 
 ## regex to find a string _without_ a substring in it
 
@@ -423,9 +374,7 @@ for n in `seq 7`; do dd if=/dev/urandom of=/dev/diskN ; done
 # mynameistatatitototu
 ```
 
-
 ## regex capture group
-
 
 what is between () is captured and can be reused as a variable ($1)
 
@@ -437,17 +386,15 @@ replace:
 
 changes all : ${variable} to "$variable" : variable is captured by ([a-zA-Z]+)
 
-
 with sed:
 
 ```bash
-sed -irn 's/$my_variable(_toto)/$my_variable_\1/g' my_file 
+sed -irn 's/$my_variable(_toto)/$my_variable_\1/g' my_file
 ```
 
 -r regex extended
 -n quiet
 -i inplace
-
 
 Example:
 
@@ -462,7 +409,6 @@ $ echo "123.456.78" |sed 's/\([0-9]*\)\.\([0-9]*\)\.\([0-9]*\)/\1 : \2 : \3/'
 123 : 456 : 78
 ```
 
-
 ## regex capture date
 
 ```bash
@@ -476,14 +422,13 @@ sed -ri "s/'((0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/[12][0-9]{3} [012][0-9]:
 
 ## regex greedy pattern
 
-
 ```bash
 # from https://stackoverflow.com/questions/3075130/what-is-the-difference-between-and-regular-expressions
 
 eeeAiiZuuuuAoooZeeee
 
 A.*Z yields 1 match: AiiZuuuuAoooZ (see on rubular.com)
-A.*?Z yields 2 matches: AiiZ and AoooZ 
+A.*?Z yields 2 matches: AiiZ and AoooZ
 
 ```
 
@@ -495,8 +440,8 @@ cat dl_links.txt | xargs wget
 echo 'one two three' | xargs mkdir
 #ls
 #one two three
-faster with xargs : 
-find ./foo -type f -name "*.txt" -exec rm {} \; 
+faster with xargs :
+find ./foo -type f -name "*.txt" -exec rm {} \;
 find ./foo -type f -name "*.txt" | xargs rm
 ```
 
@@ -506,19 +451,16 @@ use {} with –i to replace arguments:
 ls /etc/*.conf | xargs -i cp {} /home/matleg/confs
 ```
 
-
-
 ## Create user & add it to sudo group & delete old one
-	
+
 ```bash
 sudo adduser mat
 sudo usermod -a -G adm,dialout,cdrom,sudo,audio,video,plugdev,games,users,input,netdev,gpio,i2c,spi mat
 sudo deluser -remove-home pi
 ```
 
-
-
 ## Backup SD card raspberry remotely
+
 (from https://www.it-react.com/index.php/2020/02/02/backup-your-raspberry-pi-remotely/ & https://www.thedigitalpictureframe.com/guide-back-up-sd-card-raspberry-pi-while-running/)
 
 ```
@@ -535,15 +477,14 @@ sudo visudo
 ALL = NOPASSWD: /usr/bin/dd
 ```
 
-    
 ## Restore SD card (not remotely of course)
 
 ```bash
 gunzip -dc pi_backup.gz | sudo dd of=/dev/mmcblk0 bs=1M
 #  -c, --stdout      write on standard output, keep original files unchanged
 #  -d, --decompress  decompress
-``` 
-    
+```
+
 ## Connect automatically rasp to wifi
 
 ```bash
@@ -562,8 +503,6 @@ network={
 }
 ```
 
-
-
 ## List open ports
 
 ```bash
@@ -575,7 +514,6 @@ sudo nmap -sTU -O localhost
 
 sudo lsof -i:22 ## see a specific port such as 22 ##
 ```
-
 
 ## Get all pages & files of website
 
@@ -596,7 +534,7 @@ watch fail2ban-client status sshd
 fail2ban-client status
 tail -f /var/log/nginx/website-access.log
 tail -f /var/log/nginx/access.log
-vi /etc/fail2ban/jail.d/defaults-debian.conf 
+vi /etc/fail2ban/jail.d/defaults-debian.conf
 vi /etc/fail2ban/jail.d/yunohost-jails.conf
 ```
 
@@ -613,7 +551,6 @@ bantime = 3600
 findtime = 300
 ```
 
-
 ```bash
 # unban ip
 fail2ban-client set yunohost unbanip 192.168.1.254
@@ -622,7 +559,8 @@ fail2ban-client set yunohost unbanip 192.168.1.254
 tail -f /var/log/fail2ban.log
 ```
 
-## list files in dir -> to html 
+## list files in dir -> to html
+
 from:
 https://stackoverflow.com/questions/3785055/how-can-i-create-a-simple-index-html-file-which-lists-all-files-directories
 
@@ -657,7 +595,7 @@ vim /usr/lib/netdata/conf.d/exporting.conf
     destination = localhost
 "
 
-picocom -b 1200 -d 7 -f n /dev/ttyUSB0 
+picocom -b 1200 -d 7 -f n /dev/ttyUSB0
 
 systemctl restart openntpd influxdb netdata grafana-server
 
@@ -672,16 +610,15 @@ Using database teleinfo
 
 # to delete:
 > DROP SERIES FROM /.*/
-``` 
+```
 
 ```python
 
-def main():  # picocom -b 1200 -d 7 -p e -f n /dev/ttyUSB0 
+def main():  # picocom -b 1200 -d 7 -p e -f n /dev/ttyUSB0
     with serial.Serial(port='/dev/ttyUSB0', baudrate=1200, parity=serial.PARITY_EVEN, stopbits=serial.STOPBITS_ONE,
                        bytesize=serial.SEVENBITS, timeout=1) as ser:S
         logging.info("Teleinfo is reading on /dev/ttyUSB0..")
 ```
-
 
 Daemon:
 
@@ -707,7 +644,7 @@ TimeoutStartSec = infinity
 WantedBy = multi-user.target
 "
 
-vim /root/run_teleinfo.sh 
+vim /root/run_teleinfo.sh
 
 "
 #!/usr/bin/env bash
@@ -719,20 +656,16 @@ python /root/teleinfo-linky-with-raspberry/teleinfo.py >> /root/teleinfo.log
 
 
 
-``` 
+```
 
+##
 
+##
 
+##
 
-## 
+##
 
-## 
+##
 
-## 
-
-## 
-## 
-## 
-
-
-
+##

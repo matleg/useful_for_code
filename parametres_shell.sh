@@ -9,25 +9,20 @@
 #$# Le nombre de paramètres passés au script
 #$? Le code retour de la dernière commande
 #$$ Le PID su shell qui exécute le script
-#$! Le PID du dernier processus lancé en arrière-plan  
-
-
-
+#$! Le PID du dernier processus lancé en arrière-plan
 
 # Affichage du nom su script
 echo "Le nom de mon script est : $0"
 # Affichage du nombre de paramètres
 echo "Vous avez passé $# paramètres"
 # Liste des paramètres (un seul argument)
-for param in "$*"
-do
- echo "Voici la liste des paramètres (un seul argument) : $param"
+for param in "$*"; do
+    echo "Voici la liste des paramètres (un seul argument) : $param"
 done
 # Liste des paramètres (un paramètre par argument)
 echo "Voici la liste des paramètres (un paramètre par argument) :"
-for param in "$@"
-do
- echo -e "\tParamètre : $param"
+for param in "$@"; do
+    echo -e "\tParamètre : $param"
 done
 # Affichage du processus
 echo "Le PID du shell qui exécute le script est : $$"

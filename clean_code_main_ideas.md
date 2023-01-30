@@ -1,8 +1,7 @@
-
 from Clean Code A Handbook of Agile Software Craftsmanship,
 Robert C. Martin
 
-##  names 
+## names
 
 leave the camp ground cleaner than you found it
 
@@ -10,42 +9,37 @@ intention-revealing names - what is in the list? significance of values?
 
 avoid container type in names
 
-class -> nouns  , methods -> verbs
+class -> nouns , methods -> verbs
 
 avoid : xyz_controller...handler |
-        xyz_controller...definer |   useless for name completion
-        xyz_controller...storage |
-        
+xyz_controller...definer | useless for name completion
+xyz_controller...storage |
+
 pronounceable names
 
-not l, not o   (1 or 0)
+not l, not o (1 or 0)
 
 searchable names (not i, a1, a2, ....)
 
+## functions
 
+assert_equals(expected, actual) -> convention
 
-##  functions 
-
-assert_equals(expected, actual)   -> convention
-
-the less parameters, the better  (f(a1, a2, a3...) -> prefer container )
+the less parameters, the better (f(a1, a2, a3...) -> prefer container )
 
 small, do only one thing
-
 
 if function changes the state of one thing, it must be the owning object:
 not change(a), better a.change()
 
 don't repeat, don't duplicate
 
-
-
-
-##  comments 
+## comments
 
 they are not maintained
 
 they can be:
+
 - legal
 - informative (format (e.g. hh:mm), type, what it returns)
 - explanation of intent (attempt to merge...)
@@ -58,10 +52,7 @@ not all functions should be commented, prefer good names
 
 do not comment old code, remove it
 
-
-
-
-##  formatting 
+## formatting
 
 blank line : new concept
 
@@ -73,41 +64,37 @@ dependant functions vertically close
 
 not :
 
-var1     int    1                | 
-var2     int    2                |   all attached, otherwise, tend to look at names, not types 
-a        str    "1"              |  
-b        bool   False            |         
+var1 int 1 |
+var2 int 2 | all attached, otherwise, tend to look at names, not types
+a str "1" |  
+b bool False |
 
-var1 int 1                
-var2 int 2                
-a str "1"      
-b bool False   
+var1 int 1  
+var2 int 2  
+a str "1"  
+b bool False
 
-
-
-##  objects and data structures 
+## objects and data structures
 
 no getters and setters, expose only public variables
 
-objects : expose behavior and hide data 
-  - hard to add behavior (must be added to all objects)
-  - easy to add object
+objects : expose behavior and hide data
+
+- hard to add behavior (must be added to all objects)
+- easy to add object
 
 data structures : expose data and have no significant behavior
-  - easy to add behavior
-  - hard to add data structure (e.g. add an argument to a function when refactoring)
 
+- easy to add behavior
+- hard to add data structure (e.g. add an argument to a function when refactoring)
 
-
-##  errors handling 
+## errors handling
 
 checked exception : can be managed (e.g. wrong input)
 
 unchecked exceptions : need to be logged, stop execution, important...
 
-
-
-##  test driven development 
+## test driven development
 
 not write more tests than sufficient to fail
 
@@ -121,9 +108,8 @@ tests must change if code changes
 
 FIRST : fast, independant, repeatable, self-validity, timely (just before prod)
 
+## classes
 
-
-##  classes 
 small
 
 SRP : single responsibility principle
@@ -132,10 +118,7 @@ name of the class : responsibility it fullfills
 
 1 class, 1 responsibility, 1 reason to change
 
-
-
-
-##  systems 
+## systems
 
 separate construction for use
 
@@ -143,17 +126,13 @@ remove details, particularities, location...
 not: tokyostockexchange
 prefer: stockexchange
 
-
-
-##  concurrency 
+## concurrency
 
 keep concurrency-related code separately
 
 limit access to the data that might be shared
 
-
-
-##  smells and heuristics 
+## smells and heuristics
 
 encapsulate conditionals
 prefer : should_be_deleted(x)
@@ -161,7 +140,8 @@ than : if x>0 and ... then...
 
 avoid negative conditional
 
+##
 
-##   
-##   
-##   
+##
+
+##

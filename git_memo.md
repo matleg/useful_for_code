@@ -1,5 +1,4 @@
-
-##  working with detached HEAD 
+## working with detached HEAD
 
 ```sh
 git checkout commit_ID
@@ -22,7 +21,7 @@ git checkout master
 git merge tmp
 ```
 
-##  delete distant branches 
+## delete distant branches
 
 ```sh
 git push [distant_name] [local_branch]:[distant_branch]
@@ -44,14 +43,11 @@ git reset file     or     git reset commit_ID : files remain modified
 git show commit_ID:/path/to/file > file.old  : export previous version of file
 ```
 
-
-##  rebase 
+## rebase
 
 git rebase ONLY if nobody is looking at the branch! Otherwise, git revert or something else
 
-
-
-##  configure local and distant repositories 
+## configure local and distant repositories
 
 from: https://gist.github.com/jpierson/b6c0815e9dd7078f6b8cc3cb9076ddf4
 
@@ -60,41 +56,41 @@ git clone git@github...some-repo.git
 ```
 
 rename your origin remote to upstream
+
 ```sh
 git remote rename origin upstream
 ```
 
 Add a new origin
+
 ```sh
 git remote add origin git@github...my-fork
 ```
 
 Fetch from new origin
+
 ```sh
 git fetch origin
 ```
 
 Set origin master
+
 ```sh
 git branch --set-upstream-to origin/master master
 ```
 
 Push to fork
+
 ```sh
 git push origin
 ```
 
-##   
-##   
-##   
-##   
-##   
+##
 
+##
 
+##
 
+##
 
-
-
-
-
-
+##

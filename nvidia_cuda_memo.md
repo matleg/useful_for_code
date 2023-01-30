@@ -1,5 +1,4 @@
-
-##  USE_CUDA
+## USE_CUDA
 
 ```bash
 USE_CUDA=$(python -c "import torchvision, torch; print(torch.cuda.is_available())")
@@ -14,7 +13,6 @@ watch -n -d 0.5 nvidia-smi
 
 ```
 
-
 ## Settings
 
 ```bash
@@ -23,19 +21,12 @@ watch -n -d 0.5 nvidia-smi
 
 ```
 
-
-
 ## Overheating ?
 
 ```bash
 sudo systemctl restart nvidia-powerd.service
 ```
 
-
 ##
 
-
 ##
-
-
-
