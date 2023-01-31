@@ -595,7 +595,10 @@ vim /usr/lib/netdata/conf.d/exporting.conf
     destination = localhost
 "
 
-picocom -b 1200 -d 7 -f n /dev/ttyUSB0
+picocom -b 1200 -d 7 -p e -f n /dev/ttyUSB0
+
+# to quit: ctrl+A ctrl+x 
+
 
 systemctl restart openntpd influxdb netdata grafana-server
 
