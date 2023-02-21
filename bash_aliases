@@ -15,6 +15,7 @@ function checkswap() {
 }
 
 alias countfiles='find . -type f | wc -l'
+alias countfilesindirs='find . -maxdepth 1 -type d | while read -r dir; do nb=$(find "$dir" -type f | wc -l); printf "$nb \t %s\n" "$dir"; done'
 alias cp='cp -r'
 alias dir='dir --color=auto'
 alias duu='du -sch .[!.]* * | sort -h'
