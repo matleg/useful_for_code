@@ -1,6 +1,6 @@
 # VPN Cyberghost
 
-## connect (default oppenvpn)
+## connect (default openvpn)
 
 ```sh
 # US
