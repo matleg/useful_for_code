@@ -18,10 +18,10 @@
         "**/.factorypath": true,
         "**/.git": false,
         "**/.project": false,
+	// "**/0[^0]*": true,  // all subfolders starting with 0 except 00* (from https://stackoverflow.com/questions/60565855/how-to-exclude-all-folders-except-one-folder-in-vscode)
+	// "**/00*/*[^selected.md]*": true,  // all files in subfolder except selected.md
         "**/.pytest_cache": true,
         "**/.settings": false,
-		// "**/0[^0]*": true,  // all subfolders starting wit 0 except 00*
-		// "**/00*/*[^selected.md]*": true,  // all files in subfolder except selected.md
     },
     "terminal.integrated.env.linux": {
         "PYTHONPATH": "${env:PYTHONPATH}:${workspaceFolder}/src:${workspaceFolder}/tests"
