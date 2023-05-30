@@ -82,3 +82,31 @@
     // rust
     "rust-analyzer.inlayHints.typeHints.enable": false,
 }
+
+// workspace settings
+{
+    "folders": [
+        {
+            "name": "01_my_project",
+            "path": "."
+        }
+    ],
+    "settings": {
+        "python.terminal.activateEnvInCurrentTerminal": true,
+        "python.defaultInterpreterPath": "/path/to/01_my_project/venv/bin/python",
+        "python.formatting.provider": "black",
+        "python.formatting.blackPath": "venv/bin/black",
+        "python.formatting.blackArgs": [
+            "--line-length=120"
+            // "--skip-string-normalization"
+        ],
+        "git.ignoreLimitWarning": true,
+        "files.exclude": {
+            "**/venv": true,
+            "**/.coverage": true,
+        },
+        "terminal.integrated.env.linux": {
+            "PYTHONPATH": "${env:PYTHONPATH}:${workspaceFolder}/src:${workspaceFolder}/tests:${workspaceFolder}/dev"
+        },
+    }
+}
