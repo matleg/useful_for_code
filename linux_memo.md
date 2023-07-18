@@ -658,8 +658,9 @@ vim /root/run_teleinfo.sh
 source /root/teleinfo-linky-with-raspberry/venv/bin/activate
 python /root/teleinfo-linky-with-raspberry/teleinfo.py >> /root/teleinfo.log
 "
-
 ```
+
+```python
 
 # mode TIC ou historique : libelle, trame, unité 
 # Adresse Secondaire du Compteur                          ADSC s
@@ -683,6 +684,8 @@ INT_MESURE_KEYS = [
     "EASD08", "EASD09", "EASD10", "EAIT", "ERQ1", "ERQ2", "ERQ3", "ERQ4", "IRMS1", "IRMS2", "IRMS3", "URMS1", "URMS2",
     "URMS3", "PREF"
 ]
+
+```
 
 
 ##
