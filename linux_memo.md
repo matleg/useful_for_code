@@ -577,6 +577,9 @@ tree -H '.' -L 1 --noreport --charset utf-8 -P "*.zip" -o index.html
 
 Link: https://wiki.abyssproject.net/fr/debian/linky/monitoring-linky-grafana
 
+Specs linky: https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwiwov-99piAAxWNUqQEHXMMAoQQFnoECBEQAQ&url=https%3A%2F%2Fwww.enedis.fr%2Fmedia%2F2035%2Fdownload&usg=AOvVaw0Bn9Pv64VK2dhbtmrZD8YD&opi=89978449
+
+
 Useful commands and conf files:
 
 ```sh
