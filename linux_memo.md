@@ -659,10 +659,31 @@ source /root/teleinfo-linky-with-raspberry/venv/bin/activate
 python /root/teleinfo-linky-with-raspberry/teleinfo.py >> /root/teleinfo.log
 "
 
-
-
-
 ```
+
+# mode TIC ou historique : libelle, trame, unité 
+# Adresse Secondaire du Compteur                          ADSC s
+# Version de la TIC                                       VTIC 
+# Date et heure courante                                  DATE ns
+# Nom du calendrier tarifaire fournisseur                 NGTF s
+# Libellé tarif fournisseur en cours                      LTARF 16 Sans
+# Energie active soutirée totale                          EAST 9 Wh
+# Energie active soutirée Fournisseur, index 01 à 10      EASF01 à EASF10 9 Wh
+# Energie active soutirée Distributeur, index 01 à 04     EASD01 à EASD04 9 Wh
+# Energie active injectée totale                          EAIT 9 Wh 
+# Energie réactive Q1 totale                              ERQ1 à ERQ4 9 VArh
+# Courant efficace, phase 1                               IRMS1 à IRMS3 3 A
+# Tension efficace, phase 1                               URMS1 à URMS3 3 V
+# Puissance app. de référence                             PREF 2 kVA
+
+# clés téléinfo
+INT_MESURE_KEYS = [
+    "ADSC", "VTIC", "DATE", "NGTF", "LTARF", "EAST", "EASF01", "EASF02", "EASF03", "EASF04", "EASF05", "EASF06",
+    "EASF07", "EASF08", "EASF09", "EASF10", "EASD01", "EASD02", "EASD03", "EASD04", "EASD05", "EASD06", "EASD07",
+    "EASD08", "EASD09", "EASD10", "EAIT", "ERQ1", "ERQ2", "ERQ3", "ERQ4", "IRMS1", "IRMS2", "IRMS3", "URMS1", "URMS2",
+    "URMS3", "PREF"
+]
+
 
 ##
 
