@@ -27,6 +27,8 @@ watch -n -d 0.5 nvidia-smi
 sudo systemctl restart nvidia-powerd.service
 ```
 
-##
+## cuda.is_available False
+
+Try to disable secure boot
 
 ##
