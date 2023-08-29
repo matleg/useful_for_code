@@ -123,5 +123,37 @@
         "terminal.integrated.env.linux": {
             "PYTHONPATH": "${env:PYTHONPATH}:${workspaceFolder}/src:${workspaceFolder}/tests:${workspaceFolder}/dev"
         },
-    }
+    },
+    //debugger example python
+	"launch": {
+		"version": "0.2.0",
+		"configurations": [
+			{
+				"name": "Python: Current File",
+				"type": "python",
+				"request": "launch",
+				"program": "${file}",
+				"console": "integratedTerminal",
+				"justMyCode": false,
+				"args": [
+					"xx1",
+					"xx2"
+				]
+			},
+			{
+				"name": "streamlit",
+				"type": "python",
+				"request": "launch",
+				"program": "./venv/bin/streamlit",
+				"justMyCode": true,
+				"env": {
+					"PYTHONPATH": "${workspaceFolder}:${workspaceFolder}/demo:${workspaceFolder}/dev",
+				},
+				"args": [
+					"run",
+					"./toto2.py"
+				]
+			}
+		]
+	}
 }
