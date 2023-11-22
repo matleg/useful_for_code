@@ -14,6 +14,10 @@ function checkswap() {
     for file in /proc/*/status; do awk '/VmSwap|Name/{printf $2 " " $3}END{ print ""}' $file; done | sort -k 2 -n -r | head
 }
 
+function checkswap2() {
+    for file in /proc/*/status; do grep -H "VmSwap" $file; done | sort -k 2 -r | head
+}
+
 alias countfiles='find . -type f | wc -l'
 alias countfilesindirs='find . -maxdepth 1 -type d | while read -r dir; do nb=$(find "$dir" -type f | wc -l); printf "$nb \t %s\n" "$dir"; done'
 alias cp='cp -r'
