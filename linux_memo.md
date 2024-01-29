@@ -573,7 +573,13 @@ tree -H '.' -L 1 --noreport --charset utf-8 -P "*.zip" -o index.html
 
 ```
 
-##
+## compare distant and local file
+
+https://unix.stackexchange.com/questions/144476/run-a-diff-between-local-and-remote-files
+
+```sh
+ssh user@remote_host "cat remote_file.txt" | diff - local_file.txt
+```
 
 ##
 
