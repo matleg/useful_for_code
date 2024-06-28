@@ -581,7 +581,11 @@ https://unix.stackexchange.com/questions/144476/run-a-diff-between-local-and-rem
 ssh user@remote_host "cat remote_file.txt" | diff - local_file.txt
 ```
 
-##
+## Crisis tools
+
+```sh
+sudo apt install procps util-linux sysstat iproute2 numactl tcpdump nicstat ethtool linux-tools-common linux-tools-$(uname -r) bpfcc-tools bpftrace trace-cmd
+```
 
 ##
 
