@@ -336,7 +336,11 @@ AttributeError: "can't set attribute"
 automatically started when running python executable: python -m site
 (site is imported from pythonpath and executed)
 
-##
+## execute console from wherever in the code (useful debug)
+
+```python
+import code; code.interact(local=locals())
+```
 
 ##
 
