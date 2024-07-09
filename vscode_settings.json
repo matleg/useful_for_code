@@ -92,36 +92,25 @@
         }
     ],
     "settings": {
-        "python.terminal.activateEnvInCurrentTerminal": true,
-        "python.defaultInterpreterPath": "${workspaceFolder}/venv/bin/python",
-        "[python]": {
-            ".defaultFormatter": "ms-python.black-formatter"
-        },
-        "black-formatter.path": [
-            "${workspaceFolder}/venv/bin/black",
-        ],
-        "black-formatter.args": [
-            "--line-length=120"
-        ],
-        "ruff.args": [
-            "--line-length=120"
-        ],
-        ".codeActionsOnSave": {
-            "source.organizeImports": true,
-        },
-        ".formatOnSave": true,
-        "isort.args": [
-            "--profile",
-            "black"
-        ],
-        "git.ignoreLimitWarning": true,
-        "files.exclude": {
-            "**/venv": true,
-            "**/.coverage": true,
-        },
-        "terminal.integrated.env.linux": {
-            "PYTHONPATH": "${env:PYTHONPATH}:${workspaceFolder}/src:${workspaceFolder}/tests:${workspaceFolder}/dev"
-        },
+            "python.terminal.activateEnvInCurrentTerminal": true,
+	    "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
+	    "[python]": {
+	        "editor.formatOnSave": true,
+	        "editor.defaultFormatter": "charliermarsh.ruff",
+	        "editor.codeActionsOnSave": {
+	            "source.fixAll": "explicit",
+	            "source.organizeImports": "explicit"
+	        },
+	    },
+	    "ruff.lineLength": 120,
+	    "git.ignoreLimitWarning": true,
+	    "files.exclude": {
+	        "**/venv": true,
+	        "**/.coverage": true,
+	    },
+	    "terminal.integrated.env.linux": {
+	        "PYTHONPATH": "${env:PYTHONPATH}:${workspaceFolder}/src:${workspaceFolder}/tests"
+	    },
     },
     //debugger example python
 	"launch": {
