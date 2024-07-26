@@ -1,33 +1,40 @@
 {
     // general        
     "telemetry.telemetryLevel": "off",
+    "diffEditor.renderSideBySide": true,
+    "diffEditor.maxComputationTime": 0,
     "editor.rulers": [
         120
     ],
     "editor.formatOnSave": true,
     "editor.suggestSelection": "first",
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[ignore]": {
+        "editor.defaultFormatter": "foxundermoon.shell-format"
+    },
     "explorer.confirmDelete": false,
+    "explorer.confirmPasteNative": false,
     "terminal.external.linuxExec": "/bin/bash",
     "workbench.iconTheme": "vscode-icons",
     "workbench.tree.indent": 10,
+    "workbench.settings.applyToAllProfiles": [
+        "editor.defaultFormatter"
+    ],
     "window.openFoldersInNewWindow": "on",
-    "diffEditor.renderSideBySide": true,
-    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "window.menuBarVisibility": "visible",
     "files.exclude": {
         "**/__pycache__": true,
         "**/.classpath": true,
+        "**/.coverage": true,
         "**/.factorypath": true,
-        "**/.git": false,
-        "**/.project": false,
-        // "**/0[^0]*": true,  // all subfolders starting with 0 except 00* (from https://stackoverflow.com/questions/60565855/how-to-exclude-all-folders-except-one-folder-in-vscode)
-        // "**/00*/*[^selected.md]*": true,  // all files in subfolder except selected.md
+        "**/.project": true,
         "**/.pytest_cache": true,
-        "**/.settings": false,
+        "**/.settings": true,
+        "**/venv": true,
     },
-    "terminal.integrated.env.linux": {
-        "PYTHONPATH": "${env:PYTHONPATH}:${workspaceFolder}/src:${workspaceFolder}/tests"
-    },
-    "python.envFile": "${workspaceFolder}/.env", // default 
     "search.exclude": {
         "**/venv": true
     },
@@ -36,38 +43,49 @@
     },
     "debug.onTaskErrors": "debugAnyway",
     "explorer.confirmDragAndDrop": false,
+    // extensions
+    "vsicons.dontShowNewVersionMessage": true,
+    "cmake.configureOnOpen": false,
+    // markdown
     "[markdown]": {
-        ".defaultFormatter": "esbenp.prettier-vscode"
+        "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
     },
-    "markdown-preview-enhanced.codeBlockTheme": "darcula.css",
-    "markdown-preview-enhanced.previewTheme": "github-dark.css",
-    // python
-    "python.formatting.provider": "yapf",
-    "python.formatting.yapfArgs": [
-        "--style={ based_on_style: pep8, column_limit: 120 }"
-    ],
-    "[jupyter]": {},
     // C++
-    "C_Cpp.updateChannel": "Insiders",
     "C_Cpp.clang_format_style": "Visual Studio",
     "[cpp]": {
-        ".defaultFormatter": "ms-vscode.cpptools",
-        ".wordWrapColumn": 120
+        "editor.defaultFormatter": "ms-vscode.cpptools",
+        "editor.wordWrapColumn": 120
     },
     // php
     "php.validate.executablePath": "/opt/lampp/bin/php",
+    // python
+    "python.terminal.executeInFileDir": true,
+    "python.terminal.activateEnvInCurrentTerminal": true,
+    "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
+    "[python]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "charliermarsh.ruff",
+        "editor.codeActionsOnSave": {
+            "source.fixAll": "explicit",
+            "source.organizeImports": "explicit"
+        },
+    },
+    "terminal.integrated.env.linux": {
+        "PYTHONPATH": "${env:PYTHONPATH}:${workspaceFolder}/src:${workspaceFolder}/tests"
+    },
+    "ruff.lineLength": 120,
     // code-runner
     "code-runner.runInTerminal": true,
-    "code-runner.saveFileBeforeRun": true,
     "code-runner.enableAppInsights": false,
     "code-runner.respectShebang": false,
+    "code-runner.saveFileBeforeRun": true,
     "code-runner.executorMap": {
         "javascript": "node",
         "java": "cd $dir && javac $fileName && java $fileNameWithoutExt",
         "c": "cd $dir && gcc $fileName -o a.out && ./a.out",
         "cpp": "cd $dir && g++ $fileName -o a.out && ./a.out",
         "php": "/opt/lampp/bin/php",
-        "python": "cd $dir && python -u $fileName",
+        "python": "cd $dir && python3 -u $fileName",
         "go": "go run",
         "shellscript": "bash",
         "typescript": "ts-node",
@@ -75,13 +93,20 @@
     },
     // json
     "[jsonc]": {
-        ".defaultFormatter": "vscode.json-language-features"
+        "editor.defaultFormatter": "vscode.json-language-features"
     },
     "[json]": {
-        ".defaultFormatter": "vscode.json-language-features"
+        "editor.defaultFormatter": "vscode.json-language-features"
     },
     // rust
+    "rust-analyzer.inlayHints.bindingModeHints.enable": true,
+    "rust-analyzer.debug.engineSettings": {},
+    "lldb.launch.env": {
+        "RUST_BACKTRACE": "full"
+    },
     "rust-analyzer.inlayHints.typeHints.enable": false,
+    "git.enableSmartCommit": true,
+    "git.ignoreLimitWarning": true,
 }
 // workspace settings
 {
