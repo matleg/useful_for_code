@@ -25,6 +25,7 @@
     ],
     "window.openFoldersInNewWindow": "on",
     "window.menuBarVisibility": "visible",
+    "window.title": "${dirty}${rootNameShort}${separator}${activeEditorShort}${separator}${profileName}${separator}${remoteName}${separator}${appName}",
     "files.exclude": {
         "**/__pycache__": true,
         "**/.classpath": true,
