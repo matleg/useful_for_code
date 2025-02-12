@@ -136,7 +136,7 @@ sudo dd if=~/chemin/vers/le/fichier/de/backup.img of=/dev/mmcblk0  bs=512
 python -m SimpleHTTPServer 9988
 ```
 
-http://adresseip:9988/
+<http://adresseip:9988/>
 
 ## simple git server
 
@@ -461,7 +461,7 @@ sudo deluser -remove-home pi
 
 ## Backup SD card raspberry remotely
 
-(from https://www.it-react.com/index.php/2020/02/02/backup-your-raspberry-pi-remotely/ & https://www.thedigitalpictureframe.com/guide-back-up-sd-card-raspberry-pi-while-running/)
+(from <https://www.it-react.com/index.php/2020/02/02/backup-your-raspberry-pi-remotely/> & <https://www.thedigitalpictureframe.com/guide-back-up-sd-card-raspberry-pi-while-running/>)
 
 ```
 ssh mat@rasp "sudo dd if=/dev/mmcblk0 bs=1M status=progress | gzip -" | dd of=~/$(date +%Y%m%d\_%H%M%S)\_pi_backup.gz
@@ -562,7 +562,7 @@ tail -f /var/log/fail2ban.log
 ## list files in dir -> to html
 
 from:
-https://stackoverflow.com/questions/3785055/how-can-i-create-a-simple-index-html-file-which-lists-all-files-directories
+<https://stackoverflow.com/questions/3785055/how-can-i-create-a-simple-index-html-file-which-lists-all-files-directories>
 
 ```sh
 # Generate an HTML directory index one level deep:
@@ -575,7 +575,7 @@ tree -H '.' -L 1 --noreport --charset utf-8 -P "*.zip" -o index.html
 
 ## compare distant and local file
 
-https://unix.stackexchange.com/questions/144476/run-a-diff-between-local-and-remote-files
+<https://unix.stackexchange.com/questions/144476/run-a-diff-between-local-and-remote-files>
 
 ```sh
 ssh user@remote_host "cat remote_file.txt" | diff - local_file.txt
@@ -587,7 +587,12 @@ ssh user@remote_host "cat remote_file.txt" | diff - local_file.txt
 sudo apt install procps util-linux sysstat iproute2 numactl tcpdump nicstat ethtool linux-tools-common linux-tools-$(uname -r) bpfcc-tools bpftrace trace-cmd
 ```
 
-##
+## recalbox ssh connect without password
+
+```sh
+cd /recalbox/share/system/.ssh/
+vi authorized_keys
+```
 
 ##
 
