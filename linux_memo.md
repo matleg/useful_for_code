@@ -1,7 +1,13 @@
 ## softwares
 
 ```sh
-sudo apt install arp-scan bash-completion bleachbit cryptsetup dnsutils elinks fdupes gedit git-all gparted hardinfo htop iotop luckybackup lsof make meld ncdu net-tools p7zip-full samba ssh vim vlc whois
+sudo apt install arp-scan bash-completion bleachbit cargo cryptsetup dnsutils elinks fdupes gedit git-all gparted hardinfo htop iotop luckybackup lsof make meld ncdu net-tools p7zip-full samba ssh vim vlc whois
+```
+
+## Crisis tools
+
+```sh
+sudo apt install procps util-linux sysstat iproute2 numactl tcpdump nicstat ethtool linux-tools-common linux-tools-$(uname -r) bpfcc-tools bpftrace trace-cmd
 ```
 
 ## samba
@@ -280,72 +286,6 @@ possible to mount a disk at IP address?
 
 /ipadresstodisk/.........
 
-## linux VS windows
-
-- \r ASCII CR -> end of line, without jump
-- \n ASCII LF -> next line (linux)
-- \r\n EOL : CRLF -> windows
-
-## linux /etc/init.d VS /etc/rc.local
-
-use:
-
-```bash
-/etc/init.d/command start
-/etc/init.d/command stop
-/etc/init.d/command reload
-/etc/init.d/command restart
-/etc/init.d/command force-reload
-
-/etc/rc#.d (# is a number for specific initialization level - from 0 to 6)
-
-/etc/rc.local : files run after all other init level scripts have run (e.g. mount, samba, etc.)
-```
-
-## power button raspberry
-
-shorting pins 5 and 6 (GPIO3 and GND) together will wake the Pi up from a halt state
-
-```bash
-create listen-for-shutdown.py:
-```
-
-```python
-#!/usr/bin/env python
-
-import RPi.GPIO as GPIO
-import subprocess
-
-GPIO.setmode(GPIO.BCM)
-GPIO.setup(3, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-GPIO.wait_for_edge(3, GPIO.FALLING)
-
-subprocess.call(['shutdown', '-h', 'now'], shell=False)
-```
-
-```bash
-vi listen-for-shutdown.sh:
-
-#! /bin/sh
-case "$1" in
-  start)
-    /usr/local/bin/listen-for-shutdown.py &
-    ;;
-  stop)
-    pkill -f /usr/local/bin/listen-for-shutdown.py
-    ;;
-  *)
-    echo "Usage: /etc/init.d/listen-for-shutdown.sh {start|stop}"
-    exit 1
-    ;;
-esac
-exit 0
-
-
-sudo chmod +x listen-for-shutdown.py
-sudo mv listen-for-shutdown.sh /etc/init.d/
-sudo update-rc.d listen-for-shutdown.sh defaults
-```
 
 ## Copy File Permissions to Another File
 
@@ -581,11 +521,6 @@ tree -H '.' -L 1 --noreport --charset utf-8 -P "*.zip" -o index.html
 ssh user@remote_host "cat remote_file.txt" | diff - local_file.txt
 ```
 
-## Crisis tools
-
-```sh
-sudo apt install procps util-linux sysstat iproute2 numactl tcpdump nicstat ethtool linux-tools-common linux-tools-$(uname -r) bpfcc-tools bpftrace trace-cmd
-```
 
 ## recalbox ssh connect without password
 
