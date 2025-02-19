@@ -1,13 +1,13 @@
 ## softwares
 
 ```sh
-sudo apt install arp-scan bash-completion bleachbit cargo cryptsetup dnsutils elinks fdupes gedit git-all gparted hardinfo htop iotop luckybackup lsof make meld ncdu net-tools p7zip-full samba ssh testdisk vim vlc whois
+sudo apt install arp-scan bash-completion bleachbit cargo cryptsetup dnsutils elinks fdupes gedit git-all gparted hardinfo htop iotop luckybackup lsof make meld ncdu net-tools p7zip-full samba ssh vim vlc whois
 ```
 
 ## Crisis tools
 
 ```sh
-sudo apt install procps util-linux sysstat iproute2 numactl tcpdump nicstat ethtool linux-tools-common linux-tools-$(uname -r) bpfcc-tools bpftrace trace-cmd
+sudo apt install bpfcc-tools bpftrace ethtool iproute2 linux-tools-common linux-tools-$(uname -r) nicstat numactl procps sysstat tcpdump testdisk trace-cmd util-linux
 ```
 
 ## samba
