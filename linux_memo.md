@@ -1,7 +1,7 @@
 ## softwares
 
 ```sh
-sudo apt install arp-scan bash-completion bleachbit cargo cryptsetup dnsutils elinks fdupes gedit git-all gparted hardinfo htop iotop luckybackup lsof make meld ncdu net-tools p7zip-full samba ssh vim vlc whois
+sudo apt install arp-scan bash-completion bleachbit cargo cryptsetup dnsutils elinks fdupes gedit git-all gparted hardinfo htop iotop luckybackup lsof make meld ncdu net-tools p7zip-full samba ssh testdisk vim vlc whois
 ```
 
 ## Crisis tools
