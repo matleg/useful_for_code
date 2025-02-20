@@ -23,13 +23,14 @@ DNS=192.168.1.XX  # local adguard
 FallbackDNS=94.140.14.14
 ...
 ~ $ sudo systemctl restart systemd-resolved
-``` 
+```
 
 ## macchina
 
 cargo install macchina
 
 add to bashrc:
+
 ```sh
 #### macchina: display info every hour at console start
 
@@ -55,7 +56,6 @@ fi
 ## Retropie startup interesting commands
 
 [retropie_startup.sh](./retropie_startup.sh)
-
 
 ## samba
 
@@ -333,7 +333,6 @@ possible to mount a disk at IP address?
 
 /ipadresstodisk/.........
 
-
 ## Copy File Permissions to Another File
 
 ```bash
@@ -567,7 +566,6 @@ tree -H '.' -L 1 --noreport --charset utf-8 -P "*.zip" -o index.html
 ```sh
 ssh user@remote_host "cat remote_file.txt" | diff - local_file.txt
 ```
-
 
 ## recalbox ssh connect without password
 
