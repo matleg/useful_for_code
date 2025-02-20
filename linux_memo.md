@@ -1,4 +1,4 @@
-## softwares
+## Softwares
 
 ```sh
 sudo apt install arp-scan bash-completion bleachbit cargo cryptsetup dnsutils elinks fdupes gedit git-all gparted hardinfo htop iotop luckybackup lsof make meld ncdu net-tools p7zip-full samba ssh vim vlc whois
@@ -24,6 +24,34 @@ FallbackDNS=94.140.14.14
 ...
 ~ $ sudo systemctl restart systemd-resolved
 ``` 
+
+## macchina
+
+cargo install macchina
+
+add to bashrc:
+```sh
+#### macchina: display info every hour at console start
+
+TIMESTAMP_FILE="$HOME/.last_macchina"
+COMMAND="macchina"
+
+if [ ! -f "$TIMESTAMP_FILE" ]; then
+  touch "$TIMESTAMP_FILE"
+  eval $COMMAND
+else
+  CURRENT_TIME=$(date +%s)
+  LAST_EXECUTION_TIME=$(stat -c %Y "$TIMESTAMP_FILE")
+  TIME_DIFF=$((CURRENT_TIME - LAST_EXECUTION_TIME))
+  if [ "$TIME_DIFF" -ge 3600 ]; then
+    touch "$TIMESTAMP_FILE"
+    eval $COMMAND
+  fi
+fi
+
+# end macchina
+```
+
 
 ## samba
 
