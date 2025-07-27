@@ -90,6 +90,9 @@ alias sudo='sudo ' # for autocompletion (first word after ' ')
 alias t='tail -f'
 alias top='htop'
 alias topu='htop -u mat'
+function unauth() {
+    awk '/Failed password/ {print $(NF-3)}' /var/log/auth.log | sort | uniq -c | sort -nr
+}
 alias v='vim'
 alias ..='cd .. ; pwd'
 alias ...='cd ../../; pwd'
